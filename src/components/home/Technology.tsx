@@ -23,11 +23,11 @@ const Technology: React.FC = () => {
       ),
     },
     {
-      title: "Nvidia Jetson Nano",
-      description: "Powers our AI for both facial recognition and recyclable material classification in real-time.",
+      title: "Web3 to Real Life",
+      description: "Seamlessly connects traditional recycling infrastructure with blockchain-based DePIN networks for transparent tracking and rewards.",
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
         </svg>
       ),
     },
@@ -61,15 +61,6 @@ const Technology: React.FC = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.3 }}
         ></motion.div>
-        <motion.p 
-          className="text-lg text-white/80 max-w-3xl mx-auto"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-        >
-          Powered by cutting-edge technologies that make our solution possible.
-        </motion.p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

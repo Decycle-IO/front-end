@@ -1,13 +1,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Section from '../ui/Section';
-import Button from '../ui/Button';
+import EmailSignup from '../ui/EmailSignup';
 
 const Hero: React.FC = () => {
   return (
     <Section 
       id="hero" 
-      className="pt-24 pb-64 md:pt-12 md:pb-72 relative overflow-hidden"
+      className="pt-5 pb-64 md:pt-12 md:pb-72 relative overflow-hidden"
       bgColor="bg-gradient-to-br from-white to-gray-50"
     >
       {/* Background Elements */}
@@ -36,16 +36,16 @@ const Hero: React.FC = () => {
         </div>
       </div>
 
-      <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
         <div>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight text-charcoal">
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-3 md:mb-4 leading-tight text-charcoal">
               <span className="relative">
-                Revolutionizing <span className="text-forest">Recycling</span>
+                Decentralized <span className="text-forest">Recycling</span>
               </span>
               <br />
               with <span className="text-electric">AI</span> & <span className="text-forest">Zero Knowledge</span>
@@ -53,17 +53,58 @@ const Hero: React.FC = () => {
             <p className="text-lg md:text-xl text-slate mb-6 max-w-xl">
               Decycle combines AI-powered waste recognition, zero-knowledge proofs, and blockchain rewards to make recycling transparent, efficient, and rewarding—transforming environmental action into tangible value.
             </p>
-            <div className="flex flex-wrap gap-4">
-              <Button size="lg">Get Started</Button>
-              <Button variant="outline" size="lg">Learn More</Button>
+            <div className="mt-6 mb-8">
+              <EmailSignup 
+                buttonText="Join Waitlist"
+                placeholder="Your email address"
+                tagline=""
+              />
             </div>
             
-            {/* Tech Tags */}
-            <div className="flex flex-wrap gap-2 mt-6">
-              <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-forest/10 text-forest">AI-Powered</span>
-              <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-electric/20 text-charcoal">Zero Knowledge</span>
-              <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-cyan/20 text-charcoal">Blockchain</span>
-              <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-forest/10 text-forest">Eco-Friendly</span>
+            {/* Sponsor Logos - Desktop */}
+            <div className="hidden md:flex items-center justify-between w-full mt-8 px-2">
+              <a href="https://vlayer.xyz" target="_blank" rel="noopener noreferrer" className="transition-all duration-300 hover:opacity-80 mx-2">
+                <img src="/vlayer.svg" alt="VLayer" className="h-10 w-auto" />
+              </a>
+              <a href="https://vialabs.io" target="_blank" rel="noopener noreferrer" className="transition-all duration-300 hover:opacity-80 mx-2">
+                <img src="/via-logo-black.svg" alt="Via Labs" className="h-6 w-auto" />
+              </a>
+              <a href="https://blockscout.com" target="_blank" rel="noopener noreferrer" className="transition-all duration-300 hover:opacity-80 mx-2">
+                <img src="/blockscout.svg" alt="Blockscout" className="h-8 w-auto" />
+              </a>
+              <a href="https://flow.com" target="_blank" rel="noopener noreferrer" className="transition-all duration-300 hover:opacity-80 mx-2">
+                <img src="/flow.svg" alt="Flow" className="h-8 w-auto" />
+              </a>
+              <a href="https://ethglobal.com" target="_blank" rel="noopener noreferrer" className="transition-all duration-300 hover:opacity-80 mx-2">
+                <img src="/eth-global-prague.svg" alt="ETH Global" className="h-8 w-auto" />
+              </a>
+            </div>
+            
+            {/* Sponsor Logos - Mobile (Two-Row Layout) */}
+            <div className="md:hidden mt-6 flex flex-col items-center">
+              <div className="grid grid-rows-2 gap-y-4 w-full">
+                {/* First row - 3 logos */}
+                <div className="flex justify-center items-center space-x-6">
+                  <a href="https://vlayer.xyz" target="_blank" rel="noopener noreferrer" className="transition-all duration-300 hover:opacity-80">
+                    <img src="/vlayer.svg" alt="VLayer" className="h-8 w-auto" />
+                  </a>
+                  <a href="https://vialabs.io" target="_blank" rel="noopener noreferrer" className="transition-all duration-300 hover:opacity-80">
+                    <img src="/via-logo-black.svg" alt="Via Labs" className="h-5 w-auto" />
+                  </a>
+                  <a href="https://blockscout.com" target="_blank" rel="noopener noreferrer" className="transition-all duration-300 hover:opacity-80">
+                    <img src="/blockscout.svg" alt="Blockscout" className="h-7 w-auto" />
+                  </a>
+                </div>
+                {/* Second row - 2 logos */}
+                <div className="flex justify-center items-center space-x-6">
+                  <a href="https://flow.com" target="_blank" rel="noopener noreferrer" className="transition-all duration-300 hover:opacity-80">
+                    <img src="/flow.svg" alt="Flow" className="h-7 w-auto" />
+                  </a>
+                  <a href="https://ethglobal.com" target="_blank" rel="noopener noreferrer" className="transition-all duration-300 hover:opacity-80">
+                    <img src="/eth-global-prague.svg" alt="ETH Global" className="h-7 w-auto" />
+                  </a>
+                </div>
+              </div>
             </div>
           </motion.div>
         </div>
@@ -72,9 +113,9 @@ const Hero: React.FC = () => {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="relative"
+          className="relative hidden md:block"
         >
-          <div className="relative w-full h-[350px] md:h-[400px] bg-gradient-to-br from-forest/80 to-forest rounded-2xl overflow-hidden shadow-xl">
+          <div className="relative w-full h-[280px] md:h-[400px] bg-gradient-to-br from-forest/80 to-forest rounded-2xl overflow-hidden shadow-xl">
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="w-40 h-40 md:w-56 md:h-56 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center">
                 <div className="w-32 h-32 md:w-48 md:h-48 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
