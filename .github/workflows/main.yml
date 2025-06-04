@@ -31,7 +31,7 @@ jobs:
           script: |
             cd /root/Project/Decycle/front-end  # Change to your project's directory
             git pull origin main  # Pull latest changes
-            pnpm install --frozen-lockfile  # Install dependencies
+            pnpm install # Install dependencies
             pnpm build  # Build the Next.js app
             pm2 restart decycle || PORT=6969 pm2 start npx --name "decycle" -- serve dist --single --listen 6969
       - name: Notify the commit on Telegram
