@@ -1,0 +1,48 @@
+name: Deploy Next.js App
+
+on:
+  push:
+    branches:
+      - main  # Change this if you're using a different deployment branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Install pnpm
+        run: npm install -g pnpm
+
+      - name: Install Dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build Next.js App
+        run: pnpm build
+
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            cd /root/Project/Decycle/front-end  # Change to your project's directory
+            git pull origin main  # Pull latest changes
+            pnpm install --frozen-lockfile  # Install dependencies
+            pnpm build  # Build the Next.js app
+            pm2 restart decycle || PORT=6969 pm2 start npx --name "decycle" -- serve dist --single --listen 6969
+      - name: Notify the commit on Telegram
+        uses: EverythingSuckz/github-telegram-notify@main
+        with:
+          bot_token: '${{ secrets.BOT_TOKEN }}'
+          chat_id: '${{ secrets.CHAT_ID }}'
+          topic_id: '${{ secrets.TOPIC_ID }}'
+          message: |
+            🚀 *Deployment Successful!*
+            📝 *Commit:* `$(git log -1 --pretty=%s)`
+            🔗 [View Commit](https://github.com/${{ github.repository }}/commit/${{ github.sha }})
+            🌐 [View Website](https://decycle.io)
+            🏷 *By:* ${{ github.actor }}
