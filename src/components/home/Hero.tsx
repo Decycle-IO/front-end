@@ -62,20 +62,20 @@ const Hero: React.FC = () => {
             </div>
             
             {/* Sponsor Logos - Desktop */}
-            <div className="hidden md:flex items-center justify-between w-full mt-8 px-2">
-              <a href="https://vlayer.xyz" target="_blank" rel="noopener noreferrer" className="transition-all duration-300 hover:opacity-80 mx-2">
+            <div className="hidden md:flex items-center justify-between w-full mt-8 px-2 relative z-20">
+              <a href="https://vlayer.xyz" target="_blank" rel="noopener noreferrer" className="transition-all duration-300 hover:opacity-80 p-4 flex items-center">
                 <img src="/vlayer.svg" alt="VLayer" className="h-10 w-auto" />
               </a>
-              <a href="https://vialabs.io" target="_blank" rel="noopener noreferrer" className="transition-all duration-300 hover:opacity-80 mx-2">
+              <a href="https://vialabs.io" target="_blank" rel="noopener noreferrer" className="transition-all duration-300 hover:opacity-80 p-4 flex items-center">
                 <img src="/via-logo-black.svg" alt="Via Labs" className="h-6 w-auto" />
               </a>
-              <a href="https://blockscout.com" target="_blank" rel="noopener noreferrer" className="transition-all duration-300 hover:opacity-80 mx-2">
+              <a href="https://blockscout.com" target="_blank" rel="noopener noreferrer" className="transition-all duration-300 hover:opacity-80 p-4 flex items-center">
                 <img src="/blockscout.svg" alt="Blockscout" className="h-8 w-auto" />
               </a>
-              <a href="https://flow.com" target="_blank" rel="noopener noreferrer" className="transition-all duration-300 hover:opacity-80 mx-2">
+              <a href="https://flow.com" target="_blank" rel="noopener noreferrer" className="transition-all duration-300 hover:opacity-80 p-4 flex items-center">
                 <img src="/flow.svg" alt="Flow" className="h-8 w-auto" />
               </a>
-              <a href="https://ethglobal.com" target="_blank" rel="noopener noreferrer" className="transition-all duration-300 hover:opacity-80 mx-2">
+              <a href="https://ethglobal.com" target="_blank" rel="noopener noreferrer" className="transition-all duration-300 hover:opacity-80 p-4 flex items-center">
                 <img src="/eth-global-prague.svg" alt="ETHGlobal Prague" className="h-8 w-auto" />
               </a>
             </div>
