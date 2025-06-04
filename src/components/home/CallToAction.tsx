@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Section from '../ui/Section';
-import Button from '../ui/Button';
+import EmailSignup from '../ui/EmailSignup';
 
 const CallToAction: React.FC = () => {
   return (
@@ -72,70 +72,21 @@ const CallToAction: React.FC = () => {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="bg-white rounded-lg shadow-xl p-8 border border-gray-100"
         >
-          <h3 className="text-2xl font-bold mb-6 text-charcoal">Get in Touch</h3>
+          <h3 className="text-2xl font-bold mb-6 text-charcoal">Join Our Newsletter</h3>
           
-          <form className="space-y-4">
-            <div>
-              <label htmlFor="name" className="block text-sm font-medium text-slate mb-1">
-                Name
-              </label>
-              <input
-                type="text"
-                id="name"
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-forest focus:border-transparent"
-                placeholder="Your name"
-              />
-            </div>
-            
-            <div>
-              <label htmlFor="email" className="block text-sm font-medium text-slate mb-1">
-                Email
-              </label>
-              <input
-                type="email"
-                id="email"
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-forest focus:border-transparent"
-                placeholder="your.email@example.com"
-              />
-            </div>
-            
-            <div>
-              <label htmlFor="interest" className="block text-sm font-medium text-slate mb-1">
-                I'm interested in
-              </label>
-              <select
-                id="interest"
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-forest focus:border-transparent"
-              >
-                <option value="">Select an option</option>
-                <option value="investing">Investing</option>
-                <option value="partnership">Partnership</option>
-                <option value="city-integration">City Integration</option>
-                <option value="collecting">Becoming a Collector</option>
-                <option value="other">Other</option>
-              </select>
-            </div>
-            
-            <div>
-              <label htmlFor="message" className="block text-sm font-medium text-slate mb-1">
-                Message
-              </label>
-              <textarea
-                id="message"
-                rows={4}
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-forest focus:border-transparent"
-                placeholder="Tell us about your interest in Decycle..."
-              ></textarea>
-            </div>
-            
-            <Button fullWidth size="lg">
-              Send Message
-            </Button>
-            
-            <p className="text-xs text-slate text-center mt-4">
-              By submitting this form, you agree to our privacy policy and terms of service.
-            </p>
-          </form>
+          <p className="text-slate mb-6">
+            Stay updated with the latest news, product updates, and sustainability tips from Decycle.
+          </p>
+          
+          <EmailSignup 
+            buttonText="Subscribe" 
+            placeholder="Enter your email address" 
+            tagline="No spam, just valuable updates."
+          />
+          
+          <p className="text-xs text-slate text-center mt-6">
+            By subscribing, you agree to our privacy policy and terms of service.
+          </p>
         </motion.div>
       </div>
     </Section>

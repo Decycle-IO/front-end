@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Button from './Button';
+import { submitToMailchimp } from '../../services/mailchimpService';
 
 interface EmailSignupProps {
   className?: string;
@@ -19,7 +20,7 @@ const EmailSignup: React.FC<EmailSignupProps> = ({
   const [isSuccess, setIsSuccess] = useState(false);
   const [error, setError] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     // Basic email validation
@@ -31,17 +32,27 @@ const EmailSignup: React.FC<EmailSignupProps> = ({
     setError('');
     setIsSubmitting(true);
     
-    // Simulate API call
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setIsSuccess(true);
-      setEmail('');
+    try {
+      const result = await submitToMailchimp(email);
       
-      // Reset success message after 3 seconds
-      setTimeout(() => {
-        setIsSuccess(false);
-      }, 3000);
-    }, 800);
+      setIsSubmitting(false);
+      
+      if (result.success) {
+        setIsSuccess(true);
+        setEmail('');
+        
+        // Reset success message after 3 seconds
+        setTimeout(() => {
+          setIsSuccess(false);
+        }, 3000);
+      } else {
+        setError(result.message);
+      }
+    } catch (err) {
+      setIsSubmitting(false);
+      setError('An error occurred. Please try again later.');
+      console.error('Error submitting email:', err);
+    }
   };
 
   return (
