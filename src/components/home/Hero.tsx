@@ -76,7 +76,7 @@ const Hero: React.FC = () => {
                 <img src="/flow.svg" alt="Flow" className="h-8 w-auto" />
               </a>
               <a href="https://ethglobal.com" target="_blank" rel="noopener noreferrer" className="transition-all duration-300 hover:opacity-80 mx-2">
-                <img src="/eth-global-prague.svg" alt="ETH Global" className="h-8 w-auto" />
+                <img src="/eth-global-prague.svg" alt="ETHGlobal Prague" className="h-8 w-auto" />
               </a>
             </div>
             
@@ -101,7 +101,7 @@ const Hero: React.FC = () => {
                     <img src="/flow.svg" alt="Flow" className="h-7 w-auto" />
                   </a>
                   <a href="https://ethglobal.com" target="_blank" rel="noopener noreferrer" className="transition-all duration-300 hover:opacity-80">
-                    <img src="/eth-global-prague.svg" alt="ETH Global" className="h-7 w-auto" />
+                    <img src="/eth-global-prague.svg" alt="ETHGlobal Prgue" className="h-7 w-auto" />
                   </a>
                 </div>
               </div>

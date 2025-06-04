@@ -101,9 +101,9 @@ const Technology: React.FC = () => {
             </svg>
           </div>
           <div>
-            <h3 className="text-2xl font-bold mb-3 text-white text-center md:text-left">ETH Prague 2025 Winner</h3>
+            <h3 className="text-2xl font-bold mb-3 text-white text-center md:text-left">ETHGlobal Prague 2025 Winner</h3>
             <p className="text-white/80">
-              Our project was recognized as one of the top 10 best projects at ETH Prague 2025. The judges were impressed by our innovative approach to recycling, combining hardware with blockchain technology to create a sustainable and incentivized recycling ecosystem.
+              Our project was recognized as one of the top 10 best projects at ETHGlobal Prague 2025. The judges were impressed by our innovative approach to recycling, combining hardware with blockchain technology to create a sustainable and incentivized recycling ecosystem.
             </p>
           </div>
         </div>
