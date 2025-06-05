@@ -13,6 +13,7 @@ dist-ssr
 *.local
 contracts/cache
 contracts/out
+broadcast/
 
 # Editor directories and files
 .vscode/*
@@ -25,3 +26,4 @@ contracts/out
 *.sln
 *.sw?
 .vercel
+.env

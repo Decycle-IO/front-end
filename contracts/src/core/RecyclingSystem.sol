@@ -15,14 +15,18 @@ import "../libraries/RewardCalculator.sol";
  * @dev System for managing garbage cans, recycling, and rewards
  */
 contract RecyclingSystem is IRecyclingSystem, Ownable, Pausable, ReentrancyGuard {
-    /**
-     * @dev Default purchase percentage (50% of the garbage can value)
-     */
-    uint256 private constant DEFAULT_PURCHASE_PERCENTAGE = 5000; // 50% in basis points (100% = 10000)
-    /**
-     * @dev Error thrown when the caller is not authorized
-     */
-    error UnauthorizedCaller();
+/**
+ * @dev Default purchase percentage (50% of the garbage can value)
+ */
+uint256 private constant DEFAULT_PURCHASE_PERCENTAGE = 5000; // 50% in basis points (100% = 10000)
+/**
+ * @dev Minimum stake increment ($10 USDC)
+ */
+uint256 private constant MINIMUM_STAKE_INCREMENT = 10 * 10**6; // $10 USDC
+/**
+ * @dev Error thrown when the caller is not authorized
+ */
+error UnauthorizedCaller();
 
     /**
      * @dev Error thrown when the garbage can does not exist
@@ -39,15 +43,20 @@ contract RecyclingSystem is IRecyclingSystem, Ownable, Pausable, ReentrancyGuard
      */
     error GarbageCanLocked();
 
-    /**
-     * @dev Error thrown when the stake amount is insufficient
-     */
-    error InsufficientStake();
+/**
+ * @dev Error thrown when the stake amount is insufficient
+ */
+error InsufficientStake();
 
-    /**
-     * @dev Error thrown when the payment amount is insufficient
-     */
-    error InsufficientPayment();
+/**
+ * @dev Error thrown when the stake amount is invalid (not divisible by $10)
+ */
+error InvalidStakeAmount();
+
+/**
+ * @dev Error thrown when the payment amount is insufficient
+ */
+error InsufficientPayment();
 
     /**
      * @dev Struct containing information about a pending garbage can
@@ -325,6 +334,10 @@ contract RecyclingSystem is IRecyclingSystem, Ownable, Pausable, ReentrancyGuard
         if (targetAmount == 0) {
             revert("Zero target amount");
         }
+        // Ensure target amount is divisible by $10 USDC
+        if (targetAmount % MINIMUM_STAKE_INCREMENT != 0) {
+            revert InvalidStakeAmount();
+        }
         uint256 pendingGarbageCanId = _nextPendingGarbageCanId++;
         
         PendingGarbageCan storage pendingGarbageCan = _pendingGarbageCans[pendingGarbageCanId];
@@ -354,6 +367,16 @@ contract RecyclingSystem is IRecyclingSystem, Ownable, Pausable, ReentrancyGuard
         
         if (pendingGarbageCan.isDeployed) {
             revert GarbageCanNotActive();
+        }
+        
+        // Ensure stake amount is divisible by $10 USDC
+        if (amount % MINIMUM_STAKE_INCREMENT != 0 || amount == 0) {
+            revert InvalidStakeAmount();
+        }
+        
+        // Ensure we don't exceed the target amount
+        if (pendingGarbageCan.currentAmount + amount > pendingGarbageCan.targetAmount) {
+            revert("Stake would exceed target amount");
         }
         
         // Transfer USDC from the user to this contract

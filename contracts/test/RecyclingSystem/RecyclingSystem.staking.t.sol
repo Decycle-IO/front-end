@@ -336,4 +336,56 @@ contract RecyclingSystemStakingTest is BaseTest {
         vm.prank(user1);
         recyclingSystem.depositStake(newPendingGarbageCanId, STAKE_AMOUNT);
     }
+    
+    /**
+     * @dev Test staking with non-$10 increment amount
+     */
+    function testStakeNon10Increment() public {
+        // Create a new pending garbage can for this test
+        uint256 newPendingGarbageCanId = recyclingSystem.createPendingGarbageCan("New Location", TARGET_AMOUNT);
+        
+        // Try to stake with a non-$10 increment amount (e.g., $15)
+        vm.prank(user1);
+        vm.expectRevert(RecyclingSystem.InvalidStakeAmount.selector);
+        recyclingSystem.depositStake(newPendingGarbageCanId, 15 * 10**6);
+        
+        // Try to stake with a non-$10 increment amount (e.g., $101)
+        vm.prank(user1);
+        vm.expectRevert(RecyclingSystem.InvalidStakeAmount.selector);
+        recyclingSystem.depositStake(newPendingGarbageCanId, 101 * 10**6);
+        
+        // Should work with a $10 increment amount
+        vm.prank(user1);
+        recyclingSystem.depositStake(newPendingGarbageCanId, 10 * 10**6);
+        
+        // Should work with a $20 increment amount
+        vm.prank(user1);
+        recyclingSystem.depositStake(newPendingGarbageCanId, 20 * 10**6);
+        
+        // Should work with a $100 increment amount
+        vm.prank(user1);
+        recyclingSystem.depositStake(newPendingGarbageCanId, 100 * 10**6);
+    }
+    
+    /**
+     * @dev Test creating a garbage can with non-$10 increment target amount
+     */
+    function testCreateGarbageCanNon10Increment() public {
+        // Try to create a garbage can with a non-$10 increment target amount (e.g., $15)
+        vm.expectRevert(RecyclingSystem.InvalidStakeAmount.selector);
+        recyclingSystem.createPendingGarbageCan("Invalid Location", 15 * 10**6);
+        
+        // Try to create a garbage can with a non-$10 increment target amount (e.g., $101)
+        vm.expectRevert(RecyclingSystem.InvalidStakeAmount.selector);
+        recyclingSystem.createPendingGarbageCan("Invalid Location", 101 * 10**6);
+        
+        // Should work with a $10 increment target amount
+        recyclingSystem.createPendingGarbageCan("Valid Location", 10 * 10**6);
+        
+        // Should work with a $20 increment target amount
+        recyclingSystem.createPendingGarbageCan("Valid Location", 20 * 10**6);
+        
+        // Should work with a $100 increment target amount
+        recyclingSystem.createPendingGarbageCan("Valid Location", 100 * 10**6);
+    }
 }
