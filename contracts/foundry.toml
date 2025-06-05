@@ -1,0 +1,29 @@
+[profile.default]
+src = "src"
+out = "out"
+libs = ["lib"]
+solc = "0.8.28"
+optimizer = true
+optimizer_runs = 200
+
+# Remappings
+remappings = [
+    "vlayer-0.1.0/=src/libraries/vlayer/",
+    "@openzeppelin-contracts-5.0.1/=lib/openzeppelin-contracts/contracts/",
+    "risc0-ethereum-2.0.0/=lib/risc0-ethereum/"
+]
+
+# Coverage settings
+[profile.default.coverage]
+include_paths = ["src/"]
+exclude_paths = ["test/", "src/mocks/"]
+no_match_coverage = "test/|src/mocks/"
+
+[dependencies]
+risc0-ethereum = { version = "2.0.0", url = "https://github.com/vlayer-xyz/risc0-ethereum/releases/download/v2.0.0-soldeer/contracts.zip" }
+
+[rpc_endpoints]
+ethereum = "${ETHEREUM_RPC_URL}"
+polygon = "${POLYGON_RPC_URL}"
+arbitrum = "${ARBITRUM_RPC_URL}"
+optimism = "${OPTIMISM_RPC_URL}"

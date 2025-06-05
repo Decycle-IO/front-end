@@ -11,6 +11,8 @@ node_modules
 dist
 dist-ssr
 *.local
+contracts/cache
+contracts/out
 
 # Editor directories and files
 .vscode/*
