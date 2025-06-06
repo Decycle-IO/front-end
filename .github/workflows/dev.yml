@@ -1,0 +1,52 @@
+name: Deploy Next.js App
+
+on:
+  push:
+    branches:
+      - dev
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    env:
+      PORT: ${{ secrets.DEV_PORT }}  # Use secret for port
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Install pnpm
+        run: npm install -g pnpm
+
+      - name: Install Dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build Next.js App
+        run: pnpm build
+
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            cd /root/Project/Decycle/front-end
+            git checkout dev
+            git pull origin dev
+            pnpm install
+            pnpm build
+            pm2 restart dev.decycle || PORT=$PORT pm2 start npx --name "dev.decycle" -- serve dist --single --listen $PORT
+
+      - name: Notify the commit on Telegram
+        uses: EverythingSuckz/github-telegram-notify@main
+        with:
+          bot_token: '${{ secrets.BOT_TOKEN }}'
+          chat_id: '${{ secrets.CHAT_ID }}'
+          message: |
+            🚀 *Deployment Successful!*
+            📝 *Commit:* `$(git log -1 --pretty=%s)`
+            🔗 [View Commit](https://github.com/${{ github.repository }}/commit/${{ github.sha }})
+            🌐 [View Website](https://decycle.io)
+            🏷 *By:* ${{ github.actor }}
