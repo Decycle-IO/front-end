@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useAccount, useConnect, useDisconnect } from 'wagmi';
-import { injected } from '@wagmi/connectors';
+import { injected } from 'wagmi/connectors';
 import { networkConfig } from '../../contracts.config';
 import { useContracts } from './useContracts';
 
