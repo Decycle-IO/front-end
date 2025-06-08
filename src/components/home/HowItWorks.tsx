@@ -7,8 +7,10 @@ import Button from '../ui/Button';
 const HowItWorks: React.FC = () => {
   const [activeStep, setActiveStep] = useState(0);
   const [userInteracted, setUserInteracted] = useState(false);
-  const intervalRef = useRef<number | null>(null);
-  const timeoutRef = useRef<number | null>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const intervalRef = useRef<any>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const timeoutRef = useRef<any>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(sectionRef, { once: false, amount: 0.3 });
   
@@ -27,7 +29,7 @@ const HowItWorks: React.FC = () => {
     
     if (isInView && !userInteracted) {
       // Start a timeout to delay the first animation
-      timeoutRef.current = window.setTimeout(() => {
+      timeoutRef.current = setTimeout(() => {
         // Start the interval for auto-advancing
         intervalRef.current = setInterval(() => {
           setActiveStep((prevStep) => (prevStep + 1) % 6);
@@ -275,7 +277,7 @@ const HowItWorks: React.FC = () => {
           
           {/* Content */}
           <div className="lg:col-span-3">
-            <Card variant="elevated" className="p-8 rounded-xl border border-gray-100 shadow-xl bg-white/90 backdrop-blur-sm flex flex-col h-[400px]">
+            <Card className="p-8 rounded-xl border border-gray-100 shadow-xl bg-white/90 backdrop-blur-sm flex flex-col h-[400px]" padding="none" shadow={true} border={true}>
               <div className="flex-grow">
                 <h3 className="text-2xl font-bold text-forest mb-3">{steps[activeStep].title}</h3>
                 <p className="text-lg font-medium text-charcoal mb-4">{steps[activeStep].description}</p>
@@ -310,7 +312,7 @@ const HowItWorks: React.FC = () => {
         {/* Mobile Layout - Stacked with fixed height */}
         <div className="lg:hidden">
           {/* Content Card - Fixed height */}
-          <Card variant="elevated" className="p-6 rounded-xl border border-gray-100 shadow-xl bg-white/90 backdrop-blur-sm mb-6 h-[320px] flex flex-col">
+          <Card className="p-6 rounded-xl border border-gray-100 shadow-xl bg-white/90 backdrop-blur-sm mb-6 h-[320px] flex flex-col" padding="none" shadow={true} border={true}>
             <div className="flex-grow" style={{ height: "240px" }}>
               <p className="text-lg font-medium text-charcoal mb-3">{steps[activeStep].description}</p>
               <p className="text-slate text-sm line-clamp-6">{steps[activeStep].details}</p>

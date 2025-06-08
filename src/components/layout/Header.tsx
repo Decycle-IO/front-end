@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -41,20 +42,32 @@ const Header = () => {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
-          <a href="#hero" className="text-charcoal hover:text-forest transition-colors relative group font-medium text-sm tracking-wide">
+          <Link 
+            to="/" 
+            className="text-charcoal hover:text-forest transition-colors relative group font-medium text-sm tracking-wide"
+            onClick={() => window.scrollTo(0, 0)}
+          >
             Home
             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-electric group-hover:w-full transition-all duration-300"></span>
+          </Link>
+          <a href="/#features" className="text-charcoal hover:text-forest transition-colors relative group font-medium text-sm tracking-wide">
+            Features
+            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-electric group-hover:w-full transition-all duration-300"></span>
           </a>
-          <a href="#how-it-works" className="text-charcoal hover:text-forest transition-colors relative group font-medium text-sm tracking-wide">
+          <a href="/#how-it-works" className="text-charcoal hover:text-forest transition-colors relative group font-medium text-sm tracking-wide">
             How It Works
             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-electric group-hover:w-full transition-all duration-300"></span>
           </a>
-          <a href="#technology" className="text-charcoal hover:text-forest transition-colors relative group font-medium text-sm tracking-wide">
+          <a href="/#technology" className="text-charcoal hover:text-forest transition-colors relative group font-medium text-sm tracking-wide">
             Technology
             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-electric group-hover:w-full transition-all duration-300"></span>
           </a>
-          <a href="#contact" className="btn btn-primary shadow-sm hover:shadow-md transition-shadow text-sm font-medium">
-            Get Started
+          <Link to="/token" className="text-teal-500 hover:text-teal-600 transition-colors relative group font-extrabold text-sm tracking-wide">
+            $TRASH
+            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-electric group-hover:w-full transition-all duration-300"></span>
+          </Link>
+          <a href="/dashboard" target="_blank" rel="noopener noreferrer" className="btn btn-primary shadow-sm hover:shadow-md transition-shadow text-sm font-medium">
+            Open dApp
           </a>
         </nav>
 
@@ -99,16 +112,19 @@ const Header = () => {
           className="md:hidden bg-white/95 backdrop-blur-sm border-t border-forest/10"
         >
           <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
-            <a
-              href="#hero"
+            <Link
+              to="/"
               className="text-charcoal hover:text-forest transition-colors py-2 border-b border-gray-100 pb-2 flex items-center font-medium text-sm tracking-wide"
-              onClick={() => setIsMenuOpen(false)}
+              onClick={() => {
+                setIsMenuOpen(false);
+                window.scrollTo(0, 0);
+              }}
             >
               <span className="w-1.5 h-1.5 bg-electric rounded-full mr-2"></span>
               Home
-            </a>
+            </Link>
             <a
-              href="#features"
+              href="/#features"
               className="text-charcoal hover:text-forest transition-colors py-2 border-b border-gray-100 pb-2 flex items-center font-medium text-sm tracking-wide"
               onClick={() => setIsMenuOpen(false)}
             >
@@ -116,7 +132,7 @@ const Header = () => {
               Features
             </a>
             <a
-              href="#how-it-works"
+              href="/#how-it-works"
               className="text-charcoal hover:text-forest transition-colors py-2 border-b border-gray-100 pb-2 flex items-center font-medium text-sm tracking-wide"
               onClick={() => setIsMenuOpen(false)}
             >
@@ -124,19 +140,29 @@ const Header = () => {
               How It Works
             </a>
             <a
-              href="#technology"
+              href="/#technology"
               className="text-charcoal hover:text-forest transition-colors py-2 border-b border-gray-100 pb-2 flex items-center font-medium text-sm tracking-wide"
               onClick={() => setIsMenuOpen(false)}
             >
               <span className="w-1.5 h-1.5 bg-electric rounded-full mr-2"></span>
               Technology
             </a>
+            <Link
+              to="/token"
+              className="text-teal-500 hover:text-teal-600 transition-colors py-2 border-b border-gray-100 pb-2 flex items-center font-extrabold text-sm tracking-wide"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              <span className="w-1.5 h-1.5 bg-teal-500 rounded-full mr-2"></span>
+              $TRASH
+            </Link>
             <a
-              href="#contact"
+              href="/dashboard"
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn btn-primary text-center shadow-sm mt-2 text-sm font-medium"
               onClick={() => setIsMenuOpen(false)}
             >
-              Get Started
+              Open dApp
             </a>
           </div>
         </motion.div>

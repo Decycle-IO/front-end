@@ -62,6 +62,20 @@ const CallToAction: React.FC = () => {
                 </p>
               </div>
             </div>
+            
+            <div className="flex items-start">
+              <div className="w-12 h-12 bg-forest/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-forest" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+                </svg>
+              </div>
+              <div>
+                <h3 className="text-xl font-bold mb-2 text-charcoal">For Users</h3>
+                <p className="text-slate">
+                  Earn rewards for recycling and participate in our virtual ecosystem. Build your backyard, complete quests, and create real environmental impact.
+                </p>
+              </div>
+            </div>
           </div>
         </motion.div>
         
