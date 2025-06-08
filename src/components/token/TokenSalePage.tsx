@@ -6,7 +6,6 @@ import TokenDistributionChart from './TokenDistributionChart';
 import VestingScheduleChart from './VestingScheduleChart';
 import PurchaseForm from './PurchaseForm';
 import GameUtilitySection from './GameUtilitySection';
-import RealWorldImpact from './RealWorldImpact';
 
 const TokenSalePage: React.FC = () => {
   return (
@@ -142,103 +141,7 @@ const TokenSalePage: React.FC = () => {
           </Card>
         </div>
 
-        <Section title="Real-World Environmental Impact" className="!py-0 mb-4">
-          <RealWorldImpact />
-        </Section>
 
-        <Section title="Token Sale Details" className="!py-0 mb-4">
-          <Card className="p-6">
-            <h3 className="text-xl font-bold text-forest mb-4">Sale Structure</h3>
-            <p className="text-slate mb-6">
-              The $TRASH token sale is structured in three phases to ensure fair distribution and community participation.
-              Your contribution directly supports our mission to revolutionize recycling and create measurable environmental impact.
-            </p>
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="bg-forest/5 p-4 rounded-lg">
-                <h4 className="font-bold text-forest mb-2">Private Round</h4>
-                <p className="text-sm text-slate mb-1">Goal: 50 ETH ($125,000)</p>
-                <p className="text-sm text-slate mb-1">Rate: $0.001 per $TRASH</p>
-                <p className="text-sm text-slate mb-1">Tokens: 125M (12.5%)</p>
-                <p className="text-sm text-slate">Vesting: 2-month cliff, 6-month unlock</p>
-                <div className="mt-3">
-                  <span className="inline-block bg-forest text-white text-xs px-2 py-1 rounded">COMPLETED</span>
-                </div>
-              </div>
-              
-              <div className="bg-forest/10 p-4 rounded-lg border border-forest">
-                <h4 className="font-bold text-forest mb-2">Whitelist Round</h4>
-                <p className="text-sm text-slate mb-1">Goal: 75 ETH ($187,500)</p>
-                <p className="text-sm text-slate mb-1">Rate: $0.0015 per $TRASH</p>
-                <p className="text-sm text-slate mb-1">Tokens: 125M (12.5%)</p>
-                <p className="text-sm text-slate">Vesting: 1-month cliff, 6-month unlock</p>
-                <div className="mt-3">
-                  <span className="inline-block bg-forest text-white text-xs px-2 py-1 rounded">CURRENT</span>
-                </div>
-              </div>
-              
-              <div className="bg-forest/5 p-4 rounded-lg">
-                <h4 className="font-bold text-forest mb-2">Public Round</h4>
-                <p className="text-sm text-slate mb-1">Goal: 75 ETH ($187,500)</p>
-                <p className="text-sm text-slate mb-1">Rate: $0.002 per $TRASH</p>
-                <p className="text-sm text-slate mb-1">Tokens: 93.75M (9.375%)</p>
-                <p className="text-sm text-slate">Vesting: No cliff, 3-month unlock</p>
-                <div className="mt-3">
-                  <span className="inline-block bg-slate/20 text-slate text-xs px-2 py-1 rounded">COMING SOON</span>
-                </div>
-              </div>
-            </div>
-            
-            <div className="mt-8">
-              <h4 className="font-bold text-forest mb-2">Funds Allocation</h4>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <ul className="space-y-2">
-                    <li className="flex items-center">
-                      <div className="w-1 h-6 bg-forest mr-3 rounded"></div>
-                      <div>
-                        <span className="font-medium text-forest">Liquidity Provision</span>
-                        <p className="text-sm text-slate">50% - 100 ETH ($250,000)</p>
-                      </div>
-                    </li>
-                    <li className="flex items-center">
-                      <div className="w-1 h-6 bg-forest/80 mr-3 rounded"></div>
-                      <div>
-                        <span className="font-medium text-forest">Device Manufacturing</span>
-                        <p className="text-sm text-slate">25% - 50 ETH ($125,000)</p>
-                      </div>
-                    </li>
-                    <li className="flex items-center">
-                      <div className="w-1 h-6 bg-forest/60 mr-3 rounded"></div>
-                      <div>
-                        <span className="font-medium text-forest">Technology Development</span>
-                        <p className="text-sm text-slate">15% - 30 ETH ($75,000)</p>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-                <div>
-                  <ul className="space-y-2">
-                    <li className="flex items-center">
-                      <div className="w-1 h-6 bg-forest/40 mr-3 rounded"></div>
-                      <div>
-                        <span className="font-medium text-forest">Marketing/Partnerships</span>
-                        <p className="text-sm text-slate">7% - 14 ETH ($35,000)</p>
-                      </div>
-                    </li>
-                    <li className="flex items-center">
-                      <div className="w-1 h-6 bg-forest/20 mr-3 rounded"></div>
-                      <div>
-                        <span className="font-medium text-forest">Operations/Legal</span>
-                        <p className="text-sm text-slate">3% - 6 ETH ($15,000)</p>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </Card>
-        </Section>
       </div>
     </Container>
   );
