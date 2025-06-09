@@ -1,10 +1,11 @@
 # Decycle - Gamified Recycling Ecosystem
 
-This repository contains three interconnected applications:
+This repository contains four interconnected applications:
 
 1. **Homepage** (`/`) - Marketing landing page showcasing the Decycle ecosystem
 2. **Token TGE Page** (`/token`) - Token sale dApp for $TRASH token distribution
 3. **Cannes dApp** (`/cannes`) - ETHGlobal Cannes-specific gamified recycling system
+4. **Main dApp** (`/dapp/`) - The actual live Decycle application (development planned after Cannes)
 
 ## Quick Start
 
@@ -53,6 +54,7 @@ homepage/
 │   │   ├── home/           # Homepage components
 │   │   ├── token/          # Token sale components  
 │   │   ├── cannes/         # Cannes dApp components
+│   │   ├── dapp/           # Main dApp components (future development)
 │   │   ├── layout/         # Shared layout components
 │   │   └── ui/             # Reusable UI components
 │   ├── pages/
@@ -134,6 +136,17 @@ homepage/
 - **Game mechanics** - Complete gamification features
 - **Testing** - Full functionality testing
 
+### Main dApp (`/dapp/`)
+**Status**: Future Development (Post-Cannes)
+
+**Description**:
+The main Decycle application will be the full production version of the gamified recycling ecosystem. This will include all core features like garbage can deployment, recycling tracking, token rewards, virtual ecosystem building, and real-world environmental impact.
+
+**Timeline**:
+- Development will begin after Cannes dApp completion
+- Will utilize lessons learned from Cannes implementation
+- Full feature set as described in the homepage
+
 ## Configuration
 
 ### Environment Variables
@@ -157,6 +170,7 @@ Currently hardcoded for Avalanche Fuji Testnet. To change networks:
 - [ ] **Homepage Polish**: Final review and optimization
 - [ ] **Token Page Debugging**: Fix contract interaction issues
 - [ ] **Cannes Integration**: Connect UI to contracts when ready
+- [ ] **Main dApp Development**: Build full Decycle application (post-Cannes)
 
 ## Game Mechanics (Cannes dApp)
 
