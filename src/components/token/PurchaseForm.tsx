@@ -91,7 +91,7 @@ const PurchaseForm: React.FC = () => {
         </Button>
         
         <p className="text-xs text-slate mt-3 text-center">
-          By donating, you agree to our terms and acknowledge that you're receiving $TRASH tokens for in-game use only.
+          By donating, you agree to our terms and acknowledge that you're receiving $TRASH tokens in exchange for in-game use.
         </p>
       </form>
     </div>

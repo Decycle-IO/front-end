@@ -50,8 +50,8 @@ const Header = () => {
             Home
             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-electric group-hover:w-full transition-all duration-300"></span>
           </Link>
-          <a href="/#features" className="text-charcoal hover:text-forest transition-colors relative group font-medium text-sm tracking-wide">
-            Features
+          <a href="/#impact" className="text-charcoal hover:text-forest transition-colors relative group font-medium text-sm tracking-wide">
+            Impact
             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-electric group-hover:w-full transition-all duration-300"></span>
           </a>
           <a href="/#how-it-works" className="text-charcoal hover:text-forest transition-colors relative group font-medium text-sm tracking-wide">
@@ -66,8 +66,8 @@ const Header = () => {
             $TRASH
             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-electric group-hover:w-full transition-all duration-300"></span>
           </Link>
-          <a href="/dashboard" target="_blank" rel="noopener noreferrer" className="btn btn-primary shadow-sm hover:shadow-md transition-shadow text-sm font-medium">
-            Open dApp
+          <a href="/cannes" target="_blank" rel="noopener noreferrer" className="btn btn-primary shadow-sm hover:shadow-md transition-shadow text-sm font-medium">
+            Cannes dApp
           </a>
         </nav>
 
@@ -124,12 +124,12 @@ const Header = () => {
               Home
             </Link>
             <a
-              href="/#features"
+              href="/#impact"
               className="text-charcoal hover:text-forest transition-colors py-2 border-b border-gray-100 pb-2 flex items-center font-medium text-sm tracking-wide"
               onClick={() => setIsMenuOpen(false)}
             >
               <span className="w-1.5 h-1.5 bg-electric rounded-full mr-2"></span>
-              Features
+              Impact
             </a>
             <a
               href="/#how-it-works"
@@ -156,13 +156,13 @@ const Header = () => {
               $TRASH
             </Link>
             <a
-              href="/dashboard"
+              href="/cannes"
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-primary text-center shadow-sm mt-2 text-sm font-medium"
               onClick={() => setIsMenuOpen(false)}
             >
-              Open dApp
+              Cannes dApp
             </a>
           </div>
         </motion.div>

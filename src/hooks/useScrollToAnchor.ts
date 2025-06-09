@@ -33,7 +33,19 @@ export const useScrollToAnchor = () => {
       if (element) {
         // Use setTimeout to ensure the DOM has fully rendered
         setTimeout(() => {
-          element.scrollIntoView({ behavior: 'smooth' });
+          const headerHeight = 100;
+          
+          // Calculate the element's position relative to the viewport
+          const elementPosition = element.getBoundingClientRect().top;
+          
+          // Calculate the offset position
+          const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
+          
+          // Scroll to the element with the offset
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
         }, 100);
       }
     }

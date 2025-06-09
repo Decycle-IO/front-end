@@ -155,8 +155,8 @@ const GameUtilitySection: React.FC = () => {
                 <p className="text-slate text-sm">{point.description}</p>
               </div>
               
-              {/* Impact section - increased height for enhanced descriptions */}
-              <div className="px-4 py-3 h-24 border-b border-gray-100 bg-forest/5">
+              {/* Impact section - with flex-grow to extend to bottom */}
+              <div className="px-4 py-3 border-b border-gray-100 bg-forest/5 flex-grow">
                 <div className="flex items-center mb-1">
                   <div className="w-2 h-2 rounded-full bg-forest mr-2"></div>
                   <span className="text-xs font-bold uppercase text-forest/80">Real Impact</span>

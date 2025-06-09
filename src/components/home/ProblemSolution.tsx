@@ -43,8 +43,8 @@ const ProblemSolution: React.FC = () => {
               {[
                 "No economic incentives for recycling participants",
                 "Fragmented systems with no impact tracking",
-                "Lack of transparency in recycling supply chain",
-                "Insufficient funding for recycling infrastructure",
+                "Lack of engagement in environmental initiatives",
+                "Disconnect between actions and real-world impact",
                 "Limited global accessibility to recycling programs"
               ].map((item, index) => (
                 <li key={index} className="flex items-start">
@@ -82,10 +82,10 @@ const ProblemSolution: React.FC = () => {
             <ul className="space-y-3 md:space-y-4">
               {[
                 "Closed-loop economy with incentives for all",
-                "AI-powered smart cans funded by stakers",
-                "Collectors earn from pre-sorted materials",
+                "Gamified ecosystem with virtual rewards",
+                "Build your backyard while funding real projects",
                 "Virtual participation for global access",
-                "Real impact funded by in-game actions"
+                "Transparent impact tracking for every action"
               ].map((item, index) => (
                 <li key={index} className="flex items-start">
                   <div className="w-6 h-6 bg-forest/10 rounded-full flex items-center justify-center mt-0.5 mr-3 flex-shrink-0">

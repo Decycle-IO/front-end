@@ -102,7 +102,7 @@ const TokenSalePage: React.FC = () => {
                   <div className="flex items-center">
                     <div className="w-2 h-2 rounded-full bg-[#4ADE80] mr-2"></div>
                     <span className="text-slate w-28">Community:</span>
-                    <span className="font-medium">34.375%</span>
+                    <span className="font-medium">35%</span>
                   </div>
                   <div className="flex items-center">
                     <div className="w-2 h-2 rounded-full bg-[#2563EB] mr-2"></div>
@@ -117,12 +117,7 @@ const TokenSalePage: React.FC = () => {
                   <div className="flex items-center">
                     <div className="w-2 h-2 rounded-full bg-[#22D3EE] mr-2"></div>
                     <span className="text-slate w-28">Liquidity:</span>
-                    <span className="font-medium">12.5%</span>
-                  </div>
-                  <div className="flex items-center">
-                    <div className="w-2 h-2 rounded-full bg-[#0F4C3A] mr-2"></div>
-                    <span className="text-slate w-28">Operations:</span>
-                    <span className="font-medium">3.125%</span>
+                    <span className="font-medium">15%</span>
                   </div>
                 </div>
               </Card>

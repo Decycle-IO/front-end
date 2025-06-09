@@ -6,13 +6,12 @@ import { Pie } from 'react-chartjs-2';
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const TokenDistributionChart: React.FC = () => {
-  // Consolidated token distribution data - reduced to 5 categories
+  // Consolidated token distribution data - reduced to 4 categories with round numbers
   const distributionData = [
-    { label: 'Community Sales', percentage: 34.375, color: '#4ADE80' }, // electric - combined Private, Whitelist, Public rounds
+    { label: 'Community Sales', percentage: 35, color: '#4ADE80' }, // electric - combined Private, Whitelist, Public rounds
     { label: 'Team & Development', percentage: 20, color: '#2563EB' }, // blue
     { label: 'Ecosystem Rewards', percentage: 30, color: '#06B6D4' }, // turquoise
-    { label: 'Liquidity Pool', percentage: 12.5, color: '#22D3EE' }, // turquoise-light
-    { label: 'Operations & Marketing', percentage: 3.125, color: '#0F4C3A' }, // forest - combined Marketing/Partnerships and Reserve
+    { label: 'Liquidity Pool', percentage: 15, color: '#22D3EE' }, // turquoise-light
   ];
 
   // Prepare chart data

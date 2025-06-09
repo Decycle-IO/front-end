@@ -8,104 +8,192 @@ const Gamification: React.FC = () => {
     { 
       category: 'Flora', 
       icon: '🌱',
-      description: 'Invest in plant life and vegetation',
-      impact: 'Funds tree planting & habitat restoration',
-      progression: 'Evolves from basic grass to magical forest',
-      color: 'from-forest to-forest-light'
+      description: 'Invest in diverse plant life and vegetation to create\na thriving ecosystem.',
+      impact: 'Funds tree planting initiatives and restoration of\nendangered forest habitats around the world.',
+      progression: 'Basic grass → Flower patches → Lush gardens → Mini forest → Magical ancient forest',
+      color: 'from-forest to-forest-light',
+      cost: '20 $TRASH = 1 Point'
     },
     { 
       category: 'Fauna', 
       icon: '🦊',
-      description: 'Support animal and insect life',
-      impact: 'Supports wildlife conservation efforts',
-      progression: 'Attracts increasingly rare animal species',
-      color: 'from-amber-500 to-orange-600'
+      description: 'Nurture and protect wildlife in your sanctuary,\nattracting increasingly rare and endangered species.',
+      impact: 'Directly supports conservation programs protecting\nendangered species and their natural habitats.',
+      progression: 'Butterflies → Small animals → Diverse birds → Deer & predators → Endangered species',
+      color: 'from-amber-500 to-orange-600',
+      cost: '25 $TRASH = 1 Point'
     },
     { 
       category: 'Aqua', 
       icon: '💧',
-      description: 'Develop water features and aquatic health',
-      impact: 'Funds ocean cleanup & water conservation',
-      progression: 'Develops from puddles to complex water features',
-      color: 'from-cyan to-blue-500'
+      description: 'Create beautiful water features that support\ndiverse aquatic life and enhance your ecosystem.',
+      impact: 'Finances ocean cleanup operations and freshwater\nconservation projects in vulnerable regions.',
+      progression: 'Small puddles → Pond with fish → Flowing stream → Wetland ecosystem → Waterfall',
+      color: 'from-cyan to-blue-500',
+      cost: '15 $TRASH = 1 Point'
     },
     { 
       category: 'Sustainability', 
       icon: '♻️',
-      description: 'Build eco-friendly infrastructure',
-      impact: 'Funds renewable energy projects',
-      progression: 'Adds eco-friendly tech to your sanctuary',
-      color: 'from-emerald-500 to-teal-700'
+      description: 'Implement cutting-edge green technology to make\nyour sanctuary self-sustaining and eco-friendly.',
+      impact: 'Invests in renewable energy infrastructure and\nsustainable technology in developing communities.',
+      progression: 'Recycling bins → Compost system → Solar panels → Smart eco-home → Self-sustaining ecosystem',
+      color: 'from-emerald-500 to-teal-700',
+      cost: '30 $TRASH = 1 Point'
     },
   ];
 
   return (
     <Section id="gamification" bgColor="bg-gradient-to-b from-gray-50 to-white" className="pt-0 -mt-4 md:-mt-16">
-      <div className="text-center mb-8">
-        <motion.h2 
-          className="text-3xl md:text-4xl font-bold mb-4 text-forest"
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
-          $TRASH Token: Play & Create Impact
-        </motion.h2>
-        <motion.div
-          className="w-20 h-1 bg-electric mx-auto mb-6"
-          initial={{ width: 0 }}
-          whileInView={{ width: 80 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-        ></motion.div>
-        <motion.p
-          className="max-w-3xl mx-auto text-lg text-slate"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-        >
-          Earn $TRASH tokens by recycling in our smart cans or completing virtual quests. Each token represents real environmental value, 
-          backed by the materials recycled in our ecosystem. Spend tokens to evolve your virtual backyard while directly funding 
-          real environmental initiatives. Every in-game action creates measurable real-world impact, whether you're recycling physically 
-          or participating virtually.
-        </motion.p>
-      </div>
-
-      {/* Eco Gamification System */}
-      <motion.div 
-        className="mb-12"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
+      
+      {/* Token Utility - Enhanced Version */}
+      <motion.div
+        className="mb-12 -mt-10"
+        initial={{ opacity: 0, scale: 0.95 }}
+        whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
+        transition={{ duration: 0.5 }}
       >
-        <div className="bg-electric/10 p-6 rounded-xl border border-electric/20">
-          <h3 className="text-xl font-bold text-forest mb-4">Two Ways to Participate, One Ecosystem</h3>
+        {/* Main intro section */}
+        <div className="bg-gradient-to-br from-forest/10 to-electric/10 p-6 rounded-xl border border-electric/20 mb-6">
+          <h3 className="text-2xl font-bold text-forest mb-3">$TRASH Token Utility</h3>
           
-          <div className="overflow-x-auto">
-            <table className="min-w-full">
-              <thead>
-                <tr className="border-b border-electric/20">
-                  <th className="py-2 px-4 text-left text-forest font-bold">Category</th>
-                  <th className="py-2 px-4 text-left text-forest font-bold">Description</th>
-                  <th className="py-2 px-4 text-left text-forest font-bold">Real-World Impact</th>
-                  <th className="py-2 px-4 text-left text-forest font-bold">Visual Progression</th>
-                </tr>
-              </thead>
-              <tbody>
-                {ecosystemPoints.map((point, index) => (
-                  <tr key={index} className={index % 2 === 0 ? 'bg-forest/5' : ''}>
-                    <td className="py-2 px-4 font-medium">{point.category}</td>
-                    <td className="py-2 px-4 text-slate">{point.description}</td>
-                    <td className="py-2 px-4 text-slate">{point.impact}</td>
-                    <td className="py-2 px-4 text-slate">{point.progression}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+          <p className="mb-5 text-slate">
+            Spend your $TRASH tokens to increase ecosystem points in your virtual backyard, creating both visual changes and real-world environmental impact. 
+            <span className="font-medium text-forest"> Every in-game action funds real environmental initiatives.</span>
+          </p>
+          
+          {/* Ways to participate */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <Card className="p-4 h-full flex flex-col bg-white border border-forest/10 shadow-sm" hover>
+              <div className="flex items-center mb-3">
+                <div className="text-3xl mr-3">♻️</div>
+                <h4 className="text-lg font-bold text-forest">Physical Recycling</h4>
+              </div>
+              <p className="text-slate text-sm mb-3">Recycle materials in our AI-powered smart cans to earn $TRASH tokens based on material type and weight.</p>
+              <div className="mt-auto">
+                <div className="bg-forest/5 rounded-lg p-2 text-xs">
+                  <p className="font-medium text-forest mb-1">Available in areas with Decycle smart cans</p>
+                </div>
+              </div>
+            </Card>
+            
+            <Card className="p-4 h-full flex flex-col bg-white border border-forest/10 shadow-sm" hover>
+              <div className="flex items-center mb-3">
+                <div className="text-3xl mr-3">🎮</div>
+                <h4 className="text-lg font-bold text-forest">Virtual Participation</h4>
+              </div>
+              <p className="text-slate text-sm mb-3">Complete virtual quests and challenges to earn $TRASH tokens even if you don't live in an area with smart cans.</p>
+              <div className="mt-auto">
+                <div className="bg-forest/5 rounded-lg p-2 text-xs">
+                  <p className="font-medium text-forest mb-1">Available worldwide, no smart cans needed</p>
+                </div>
+              </div>
+            </Card>
+            
+            <Card className="p-4 h-full flex flex-col bg-white border border-forest/10 shadow-sm" hover>
+              <div className="flex items-center mb-3">
+                <div className="text-3xl mr-3">🌍</div>
+                <h4 className="text-lg font-bold text-forest">Real-World Impact</h4>
+              </div>
+              <p className="text-slate text-sm mb-3">Every $TRASH token and game action directly funds environmental projects that help real people and communities worldwide.</p>
+              <div className="mt-auto">
+                <div className="bg-forest/5 rounded-lg p-2 text-xs">
+                  <p className="font-medium text-forest mb-1">Automatic with every interaction</p>
+                </div>
+              </div>
+            </Card>
           </div>
         </div>
+        
+        {/* Game features highlight */}
+        <div id="impact" className="bg-gradient-to-br from-forest to-forest-light text-white rounded-xl p-6 mb-6">
+          <h3 className="text-xl font-bold mb-4">Play & Create Impact</h3>
+          <p className="mb-4">
+            Your virtual sanctuary evolves as you invest in ecosystem points, with each upgrade visually representing your environmental contribution.
+            Collect Eco-Guardian animals, complete quests, and join community challenges to maximize your impact.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+            <div className="bg-white/10 rounded-lg p-3">
+              <div className="text-2xl mb-1">🏡</div>
+              <h4 className="font-bold text-electric text-sm">Evolving Backyard</h4>
+              <p className="text-xs text-white/80">Visual changes reflect your environmental impact</p>
+            </div>
+            <div className="bg-white/10 rounded-lg p-3">
+              <div className="text-2xl mb-1">🦁</div>
+              <h4 className="font-bold text-electric text-sm">Eco-Guardians</h4>
+              <p className="text-xs text-white/80">Collect 150+ endangered animal species</p>
+            </div>
+            <div className="bg-white/10 rounded-lg p-3">
+              <div className="text-2xl mb-1">🌍</div>
+              <h4 className="font-bold text-electric text-sm">Community Impact</h4>
+              <p className="text-xs text-white/80">Join global challenges for collective change</p>
+            </div>
+          </div>
+        </div>
+        
+        {/* Ecosystem points cards */}
+        <h3 className="text-xl font-bold text-forest mb-4">Impact Categories</h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+          {ecosystemPoints.map((point, index) => (
+            <Card 
+              key={index} 
+              className="h-full flex flex-col overflow-hidden" 
+              padding="none"
+              hover
+            >
+              {/* Card header with consistent height */}
+              <div className={`bg-gradient-to-r ${point.color} p-4 text-white flex items-center`}>
+                <div className="text-3xl mr-3">{point.icon}</div>
+                <h4 className="text-lg font-bold">{point.category}</h4>
+              </div>
+              
+              {/* Card content */}
+              <div className="flex-grow flex flex-col">
+                {/* Description section */}
+                <div className="px-4 py-3 flex items-center border-b border-gray-100">
+                  <p className="text-slate text-sm">{point.description}</p>
+                </div>
+                
+                {/* Impact section - with flex-grow to extend to bottom */}
+                <div className="px-4 py-3 border-b border-gray-100 bg-forest/5 flex-grow">
+                  <div className="flex items-center mb-1">
+                    <div className="w-2 h-2 rounded-full bg-forest mr-2"></div>
+                    <span className="text-xs font-bold uppercase text-forest/80">Real Impact</span>
+                  </div>
+                  <p className="text-forest text-sm pl-4">{point.impact}</p>
+                </div>
+              </div>
+            </Card>
+          ))}
+        </div>
+
+        {/* Token utility summary */}
+        <Card className="p-5 border border-electric/20 bg-electric/5">
+          <div className="flex items-center mb-3">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-forest mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <h3 className="text-lg font-bold text-forest">$TRASH Token Flow</h3>
+          </div>
+          <div className="grid grid-cols-3 gap-4">
+            <div className="bg-forest/5 rounded-lg p-3 text-center">
+              <div className="text-xl mb-1">💰</div>
+              <h4 className="font-bold text-forest text-sm">Earn</h4>
+              <p className="text-xs text-slate">Recycle materials in smart cans or complete virtual quests to earn tokens</p>
+            </div>
+            <div className="bg-forest/5 rounded-lg p-3 text-center">
+              <div className="text-xl mb-1">🔄</div>
+              <h4 className="font-bold text-forest text-sm">Spend</h4>
+              <p className="text-xs text-slate">Use tokens to evolve your virtual backyard and fund environmental initiatives</p>
+            </div>
+            <div className="bg-gradient-to-br from-forest/20 to-electric/20 rounded-lg p-3 text-center border border-electric/30">
+              <div className="text-xl mb-1">🌎</div>
+              <h4 className="font-bold text-forest text-sm">Real-World Impact</h4>
+              <p className="text-xs text-slate">Every token spent directly funds environmental projects including tree planting, wildlife conservation, ocean cleanup, and renewable energy</p>
+            </div>
+          </div>
+        </Card>
       </motion.div>
 
       {/* Participation Paths */}
@@ -197,49 +285,7 @@ const Gamification: React.FC = () => {
         </motion.div>
       </div>
 
-      {/* Token Utility */}
-      <motion.div
-        className="mb-12"
-        initial={{ opacity: 0, scale: 0.95 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
-      >
-        <div className="bg-gradient-to-br from-forest to-forest-light text-white rounded-xl p-6">
-          <div className="flex flex-col md:flex-row items-center">
-            <div className="md:w-1/4 mb-6 md:mb-0 md:mr-6">
-              <div className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-              </div>
-            </div>
-            
-            <div className="md:w-3/4">
-              <h3 className="text-xl font-bold mb-3 text-center md:text-left">$TRASH Token: The Backbone of Our Ecosystem</h3>
-              <p className="mb-4">
-                Every $TRASH token represents real environmental value, backed by the materials recycled in our ecosystem. 
-                The token flows through our complete cycle: stakers fund smart cans, users recycle to earn tokens, 
-                collectors gather materials, and revenue returns to stakers.
-              </p>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
-                <div className="bg-white/10 p-3 rounded-lg">
-                  <h4 className="font-bold text-electric mb-1">Earn</h4>
-                  <p className="text-sm">Recycle materials, complete quests, stake in infrastructure</p>
-                </div>
-                <div className="bg-white/10 p-3 rounded-lg">
-                  <h4 className="font-bold text-electric mb-1">Spend</h4>
-                  <p className="text-sm">Evolve your backyard, fund environmental projects, collect NFTs</p>
-                </div>
-                <div className="bg-white/10 p-3 rounded-lg">
-                  <h4 className="font-bold text-electric mb-1">Govern</h4>
-                  <p className="text-sm">Vote on ecosystem decisions and environmental initiatives</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </motion.div>
+
 
     </Section>
   );

@@ -48,8 +48,11 @@ const Hero: React.FC = () => {
                 Decentralized <span className="text-forest">Recycling Ecosystem</span>
               </span>
             </h1>
-            <p className="text-lg md:text-xl text-slate mb-6 max-w-xl">
+            <p className="text-lg md:text-xl text-slate mb-3 max-w-xl">
               Decycle creates a closed-loop economy where stakers fund smart cans, users earn by recycling, collectors gather materials, and everyone shares in the value created—all while making measurable environmental impact.
+            </p>
+            <p className="text-lg md:text-xl text-slate mb-6 max-w-xl">
+              <span className="font-medium text-forest">Turn recycling into a game with real impact.</span> Earn $TRASH tokens to build your virtual ecosystem, collect rare eco-guardians, and directly fund environmental initiatives worldwide. Every action in-game creates measurable real-world change.
             </p>
             <div className="mt-6 mb-8">
               <EmailSignup 
