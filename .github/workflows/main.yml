@@ -8,7 +8,9 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
+    
+    env:
+      PORT: ${{ secrets.PORT }} 
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
@@ -30,10 +32,11 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             cd /root/Project/Decycle/front-end  # Change to your project's directory
+            git checkout main
             git pull origin main  # Pull latest changes
             pnpm install # Install dependencies
             pnpm build  # Build the Next.js app
-            pm2 restart decycle || PORT=6969 pm2 start npx --name "decycle" -- serve dist --single --listen 6969
+            pm2 restart decycle || PORT=$PORT pm2 start npx --name "decycle" -- serve dist --single --listen $PORT
       - name: Notify the commit on Telegram
         uses: EverythingSuckz/github-telegram-notify@main
         with:
