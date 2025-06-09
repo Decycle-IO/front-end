@@ -34,7 +34,7 @@ forge build --optimize
 
 # Deploy contracts
 echo "Deploying contracts..."
-forge script script/Deploy.s.sol:Deploy --rpc-url $AVALANCHE_RPC_URL --private-key $PRIVATE_KEY --broadcast --verify
+forge script script/Deploy.s.sol:Deploy --rpc-url $AVALANCHE_RPC_URL --private-key $PRIVATE_KEY --broadcast # --verify
 
 # Extract contract addresses from the deployment output
 DEPLOY_OUTPUT=$(forge script script/Deploy.s.sol:Deploy --rpc-url $AVALANCHE_RPC_URL --private-key $PRIVATE_KEY)
@@ -47,6 +47,7 @@ ACHIEVEMENT_NFT_ADDRESS=$(echo "$DEPLOY_OUTPUT" | grep "AchievementNFT:" | awk '
 EMAIL_VERIFIER_ADDRESS=$(echo "$DEPLOY_OUTPUT" | grep "EmailVerifier:" | awk '{print $2}')
 RECYCLING_SYSTEM_ADDRESS=$(echo "$DEPLOY_OUTPUT" | grep "RecyclingSystem:" | awk '{print $2}')
 QUEST_SYSTEM_ADDRESS=$(echo "$DEPLOY_OUTPUT" | grep "QuestSystem:" | awk '{print $2}')
+TRASH_GENESIS_ADDRESS=$(echo "$DEPLOY_OUTPUT" | grep "TrashGenesis:" | awk '{print $2}')
 
 # Check if contracts.config.ts exists
 CONFIG_FILE="../contracts.config.ts"
@@ -65,6 +66,7 @@ export interface ContractAddresses {
   emailVerifier: string;
   recyclingSystem: string;
   questSystem: string;
+  trashGenesis: string;
 }
 
 export const contractAddresses: ContractAddresses = {
@@ -74,7 +76,8 @@ export const contractAddresses: ContractAddresses = {
   achievementNFT: "${ACHIEVEMENT_NFT_ADDRESS}",
   emailVerifier: "${EMAIL_VERIFIER_ADDRESS}",
   recyclingSystem: "${RECYCLING_SYSTEM_ADDRESS}",
-  questSystem: "${QUEST_SYSTEM_ADDRESS}"
+  questSystem: "${QUEST_SYSTEM_ADDRESS}",
+  trashGenesis: "${TRASH_GENESIS_ADDRESS}"
 };
 
 export const networkConfig = {
@@ -115,6 +118,10 @@ else
   
   if [ ! -z "$QUEST_SYSTEM_ADDRESS" ]; then
     sed -i "s/questSystem: \"[^\"]*\"/questSystem: \"$QUEST_SYSTEM_ADDRESS\"/" "$CONFIG_FILE"
+  fi
+  
+  if [ ! -z "$TRASH_GENESIS_ADDRESS" ]; then
+    sed -i "s/trashGenesis: \"[^\"]*\"/trashGenesis: \"$TRASH_GENESIS_ADDRESS\"/" "$CONFIG_FILE"
   fi
 fi
 

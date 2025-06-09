@@ -9,7 +9,7 @@ optimizer_runs = 200
 # Remappings
 remappings = [
     "vlayer-0.1.0/=src/libraries/vlayer/",
-    "@openzeppelin-contracts-5.0.1/=lib/openzeppelin-contracts/contracts/",
+    "@openzeppelin/=lib/openzeppelin-contracts/",
     "risc0-ethereum-2.0.0/=lib/risc0-ethereum/"
 ]
 

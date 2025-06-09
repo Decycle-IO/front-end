@@ -45,13 +45,14 @@ const Hero: React.FC = () => {
           >
             <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-3 md:mb-4 leading-tight text-charcoal">
               <span className="relative">
-                Decentralized <span className="text-forest">Recycling</span>
+                Decentralized <span className="text-forest">Recycling Ecosystem</span>
               </span>
-              <br />
-              with <span className="text-electric">AI</span> & <span className="text-forest">Zero Knowledge</span>
             </h1>
+            <p className="text-lg md:text-xl text-slate mb-3 max-w-xl">
+              Decycle creates a closed-loop economy where stakers fund smart cans, users earn by recycling, collectors gather materials, and everyone shares in the value created—all while making measurable environmental impact.
+            </p>
             <p className="text-lg md:text-xl text-slate mb-6 max-w-xl">
-              Decycle combines AI-powered waste recognition, zero-knowledge proofs, and blockchain rewards to make recycling transparent, efficient, and rewarding—transforming environmental action into tangible value.
+              <span className="font-medium text-forest">Turn recycling into a game with real impact.</span> Earn $TRASH tokens to build your virtual ecosystem, collect rare eco-guardians, and directly fund environmental initiatives worldwide. Every action in-game creates measurable real-world change.
             </p>
             <div className="mt-6 mb-8">
               <EmailSignup 
@@ -63,11 +64,11 @@ const Hero: React.FC = () => {
             
             {/* Sponsor Logos - Desktop */}
             <div className="hidden md:flex items-center justify-between w-full mt-8 px-2 relative z-20">
-              <a href="https://vlayer.xyz" target="_blank" rel="noopener noreferrer" className="transition-all duration-300 hover:opacity-80 p-4 flex items-center">
-                <img src="/vlayer.svg" alt="VLayer" className="h-10 w-auto" />
+              <a href="https://ethglobal.com" target="_blank" rel="noopener noreferrer" className="transition-all duration-300 hover:opacity-80 p-4 flex items-center">
+                <img src="/eth-global-prague.svg" alt="ETHGlobal Prague" className="h-12 w-auto" />
               </a>
               <a href="https://vialabs.io" target="_blank" rel="noopener noreferrer" className="transition-all duration-300 hover:opacity-80 p-4 flex items-center">
-                <img src="/via-logo-black.svg" alt="Via Labs" className="h-6 w-auto" />
+                <img src="/via-logo-black.svg" alt="Via Labs" className="h-6 max-w-none" />
               </a>
               <a href="https://blockscout.com" target="_blank" rel="noopener noreferrer" className="transition-all duration-300 hover:opacity-80 p-4 flex items-center">
                 <img src="/blockscout.svg" alt="Blockscout" className="h-8 w-auto" />
@@ -75,33 +76,27 @@ const Hero: React.FC = () => {
               <a href="https://flow.com" target="_blank" rel="noopener noreferrer" className="transition-all duration-300 hover:opacity-80 p-4 flex items-center">
                 <img src="/flow.svg" alt="Flow" className="h-8 w-auto" />
               </a>
-              <a href="https://ethglobal.com" target="_blank" rel="noopener noreferrer" className="transition-all duration-300 hover:opacity-80 p-4 flex items-center">
-                <img src="/eth-global-prague.svg" alt="ETHGlobal Prague" className="h-8 w-auto" />
-              </a>
             </div>
             
             {/* Sponsor Logos - Mobile (Two-Row Layout) */}
             <div className="md:hidden mt-6 flex flex-col items-center">
               <div className="grid grid-rows-2 gap-y-4 w-full">
-                {/* First row - 3 logos */}
+                {/* First row - ETHGlobal Prague and Via Labs */}
                 <div className="flex justify-center items-center space-x-6">
-                  <a href="https://vlayer.xyz" target="_blank" rel="noopener noreferrer" className="transition-all duration-300 hover:opacity-80">
-                    <img src="/vlayer.svg" alt="VLayer" className="h-8 w-auto" />
+                  <a href="https://ethglobal.com" target="_blank" rel="noopener noreferrer" className="transition-all duration-300 hover:opacity-80">
+                    <img src="/eth-global-prague.svg" alt="ETHGlobal Prague" className="h-10 w-auto" />
                   </a>
                   <a href="https://vialabs.io" target="_blank" rel="noopener noreferrer" className="transition-all duration-300 hover:opacity-80">
-                    <img src="/via-logo-black.svg" alt="Via Labs" className="h-5 w-auto" />
+                    <img src="/via-logo-black.svg" alt="Via Labs" className="h-5 max-w-none" />
                   </a>
+                </div>
+                {/* Second row - Blockscout and Flow */}
+                <div className="flex justify-center items-center space-x-6">
                   <a href="https://blockscout.com" target="_blank" rel="noopener noreferrer" className="transition-all duration-300 hover:opacity-80">
                     <img src="/blockscout.svg" alt="Blockscout" className="h-7 w-auto" />
                   </a>
-                </div>
-                {/* Second row - 2 logos */}
-                <div className="flex justify-center items-center space-x-6">
                   <a href="https://flow.com" target="_blank" rel="noopener noreferrer" className="transition-all duration-300 hover:opacity-80">
                     <img src="/flow.svg" alt="Flow" className="h-7 w-auto" />
-                  </a>
-                  <a href="https://ethglobal.com" target="_blank" rel="noopener noreferrer" className="transition-all duration-300 hover:opacity-80">
-                    <img src="/eth-global-prague.svg" alt="ETHGlobal Prgue" className="h-7 w-auto" />
                   </a>
                 </div>
               </div>
@@ -121,8 +116,10 @@ const Hero: React.FC = () => {
                 <div className="w-32 h-32 md:w-48 md:h-48 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
                   <div className="w-24 h-24 md:w-40 md:h-40 bg-electric rounded-full flex items-center justify-center shadow-lg">
                     <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-electric to-electric-dark opacity-50"></div>
+                    
+                    {/* Circular Flow Icon */}
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 md:h-20 md:w-20 text-forest" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
                     </svg>
                   </div>
                 </div>

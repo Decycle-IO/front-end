@@ -7,8 +7,10 @@ import Button from '../ui/Button';
 const HowItWorks: React.FC = () => {
   const [activeStep, setActiveStep] = useState(0);
   const [userInteracted, setUserInteracted] = useState(false);
-  const intervalRef = useRef<number | null>(null);
-  const timeoutRef = useRef<number | null>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const intervalRef = useRef<any>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const timeoutRef = useRef<any>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(sectionRef, { once: false, amount: 0.3 });
   
@@ -27,7 +29,7 @@ const HowItWorks: React.FC = () => {
     
     if (isInView && !userInteracted) {
       // Start a timeout to delay the first animation
-      timeoutRef.current = window.setTimeout(() => {
+      timeoutRef.current = setTimeout(() => {
         // Start the interval for auto-advancing
         intervalRef.current = setInterval(() => {
           setActiveStep((prevStep) => (prevStep + 1) % 6);
@@ -99,39 +101,39 @@ const HowItWorks: React.FC = () => {
       color: "from-purple-600 to-indigo-700"
     },
     {
-      title: "Users Earn Rewards",
-      description: "Users receive rewards based on the type of materials recycled",
-      details: "Every recycling action earns tokens that are tracked transparently on the blockchain. The reward amount varies based on the material type and current market value, creating a direct financial incentive for sustainable behavior.",
+      title: "Earn $TRASH Tokens",
+      description: "Users receive $TRASH tokens based on the type and weight of materials recycled",
+      details: "Every recycling action earns $TRASH tokens that are tracked transparently on the blockchain. These tokens have real utility in our ecosystem, allowing you to evolve your virtual backyard and fund environmental initiatives.",
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
       ),
-      benefit: "Get paid for eco participation",
+      benefit: "Gamified recycling rewards",
       color: "from-amber-500 to-orange-600"
     },
     {
-      title: "Collectors Purchase Materials",
-      description: "Recycling collectors purchase the sorted materials at a discount, creating a circular economy",
-      details: "When smart cans reach capacity, local recycling collectors are notified. They purchase the pre-sorted, high-quality materials at below-market rates, creating a win-win situation. The collectors save on sorting costs while the Decycle ecosystem generates revenue.",
+      title: "Build Virtual Ecosystem",
+      description: "Spend tokens to evolve your backyard and collect rare Eco-Guardian animals",
+      details: "Use your earned tokens to increase ecosystem points in four categories: Flora, Fauna, Aqua, and Sustainability. Watch your virtual sanctuary evolve visually as you invest, and collect over 150 unique endangered animal species as Eco-Guardians.",
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
       ),
-      benefit: "Decentralization of recycling",
-      color: "from-emerald-500 to-teal-700"
+      benefit: "Visual progression & collection",
+      color: "from-electric to-electric-dark"
     },
     {
-      title: "Stakers Receive Dividends",
-      description: "Stakers earn a percentage of all recycling transactions in their deployed smart cans",
-      details: "The revenue generated from material sales is distributed among the ecosystem participants. Stakers receive dividends proportional to their stake, creating a sustainable business model that aligns financial incentives with environmental impact.",
+      title: "Create Real-World Impact",
+      description: "Every in-game action directly funds environmental initiatives worldwide",
+      details: "Your virtual actions create real environmental change. When you spend tokens to increase ecosystem points, you're directly funding tree planting, wildlife conservation, ocean cleanup, and renewable energy projects with transparent impact tracking.",
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
       ),
-      benefit: "Sustainable revenue stream",
+      benefit: "Measurable environmental change",
       color: "from-forest to-forest-light"
     }
   ];
@@ -275,7 +277,7 @@ const HowItWorks: React.FC = () => {
           
           {/* Content */}
           <div className="lg:col-span-3">
-            <Card variant="elevated" className="p-8 rounded-xl border border-gray-100 shadow-xl bg-white/90 backdrop-blur-sm flex flex-col h-[400px]">
+            <Card className="p-8 rounded-xl border border-gray-100 shadow-xl bg-white/90 backdrop-blur-sm flex flex-col h-[400px]" padding="none" shadow={true} border={true}>
               <div className="flex-grow">
                 <h3 className="text-2xl font-bold text-forest mb-3">{steps[activeStep].title}</h3>
                 <p className="text-lg font-medium text-charcoal mb-4">{steps[activeStep].description}</p>
@@ -310,7 +312,7 @@ const HowItWorks: React.FC = () => {
         {/* Mobile Layout - Stacked with fixed height */}
         <div className="lg:hidden">
           {/* Content Card - Fixed height */}
-          <Card variant="elevated" className="p-6 rounded-xl border border-gray-100 shadow-xl bg-white/90 backdrop-blur-sm mb-6 h-[320px] flex flex-col">
+          <Card className="p-6 rounded-xl border border-gray-100 shadow-xl bg-white/90 backdrop-blur-sm mb-6 h-[320px] flex flex-col" padding="none" shadow={true} border={true}>
             <div className="flex-grow" style={{ height: "240px" }}>
               <p className="text-lg font-medium text-charcoal mb-3">{steps[activeStep].description}</p>
               <p className="text-slate text-sm line-clamp-6">{steps[activeStep].details}</p>
