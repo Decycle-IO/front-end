@@ -62,10 +62,6 @@ const Header = () => {
             Technology
             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-electric group-hover:w-full transition-all duration-300"></span>
           </a>
-          <Link to="/token" className="text-teal-500 hover:text-teal-600 transition-colors relative group font-extrabold text-sm tracking-wide">
-            $TRASH
-            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-electric group-hover:w-full transition-all duration-300"></span>
-          </Link>
           <a href="/cannes" target="_blank" rel="noopener noreferrer" className="btn btn-primary shadow-sm hover:shadow-md transition-shadow text-sm font-medium">
             Cannes dApp
           </a>
@@ -147,14 +143,6 @@ const Header = () => {
               <span className="w-1.5 h-1.5 bg-electric rounded-full mr-2"></span>
               Technology
             </a>
-            <Link
-              to="/token"
-              className="text-teal-500 hover:text-teal-600 transition-colors py-2 border-b border-gray-100 pb-2 flex items-center font-extrabold text-sm tracking-wide"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              <span className="w-1.5 h-1.5 bg-teal-500 rounded-full mr-2"></span>
-              $TRASH
-            </Link>
             <a
               href="/cannes"
               target="_blank"
