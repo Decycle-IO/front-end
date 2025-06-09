@@ -9,16 +9,18 @@ export interface ContractAddresses {
   emailVerifier: string;
   recyclingSystem: string;
   questSystem: string;
+  trashGenesis: string;
 }
 
 export const contractAddresses: ContractAddresses = {
-  trashToken: "0xb8eBb52b8AffC07Bb8EC67b9230E19989A907CAf",
-  testUSDC: "0x161CFA4198bF7D7823D364EEFbB7e7052F815766",
-  stakeNFT: "0xf4A26F16598f9e3B010703fDf4697F067463F84A",
-  achievementNFT: "0x1C5A0a5E6f08125bc46253ABfD386Afb619D94D1",
-  emailVerifier: "0xA0Affc621a9D663A6D3726BaEaa712A7Ed890c9C",
-  recyclingSystem: "0x1b9Fb4f3d9F8e326F22a3429dc81C491EA620F3C",
-  questSystem: "0x8Bc26cdbd51598030b0E81566b9602122F90b920"
+  trashToken: "0x343c3704248DC9143050bC618F3d1a8E28CBb9f8",
+  testUSDC: "0x8bE33D76353AB764f3A7b9F45B8Eff0090a48d12",
+  stakeNFT: "0xcC8179FC62F75AbF5dEABf16c39B147144ba0564",
+  achievementNFT: "0x96cBD71AcE43AB693E16dF80202a7DFff9B482dC",
+  emailVerifier: "0xebfd0088D27F31a611d55016CC64f8e9719dad94",
+  recyclingSystem: "0xbF2cE3A7938F255d31C1032b3a53Fd6c933e5B20",
+  questSystem: "0x94f1c70d4f7cb71174A68D8520A6d948b4E9409b",
+  trashGenesis: "0xB4b773cDd37FDe0D431a202378Cc54b388ac1776"
 };
 
 export const networkConfig = {

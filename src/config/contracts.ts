@@ -1,9 +1,5 @@
 import { contractAddresses as addresses, networkConfig } from '../../contracts.config';
 
-// Contract ABIs
-// Note: In a real implementation, we would import the actual ABIs from JSON files
-// For now, we'll use placeholder ABIs that will be replaced with the actual ones
-
 export const trashTokenABI = [
   // ERC20 Standard Functions
   'function totalSupply() external view returns (uint256)',
@@ -120,6 +116,139 @@ export const emailVerifierABI = [
   'function getVerifiedWallet(bytes32 emailHash) external view returns (address)'
 ];
 
+export const trashGenesisABI = [
+  {
+    "type": "function",
+    "name": "currentPhase",
+    "inputs": [],
+    "outputs": [{"name": "", "type": "uint8", "internalType": "uint8"}],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "whitelist",
+    "inputs": [{"name": "user", "type": "address", "internalType": "address"}],
+    "outputs": [{"name": "", "type": "bool", "internalType": "bool"}],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "ethPriceUSD",
+    "inputs": [],
+    "outputs": [{"name": "", "type": "uint256", "internalType": "uint256"}],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "totalEthRaised",
+    "inputs": [],
+    "outputs": [{"name": "", "type": "uint256", "internalType": "uint256"}],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "totalTokensSold",
+    "inputs": [],
+    "outputs": [{"name": "", "type": "uint256", "internalType": "uint256"}],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "totalContributors",
+    "inputs": [],
+    "outputs": [{"name": "", "type": "uint256", "internalType": "uint256"}],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "trashToken",
+    "inputs": [],
+    "outputs": [{"name": "", "type": "address", "internalType": "address"}],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "treasury",
+    "inputs": [],
+    "outputs": [{"name": "", "type": "address", "internalType": "address"}],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "calculateTokenAmount",
+    "inputs": [{"name": "ethAmount", "type": "uint256", "internalType": "uint256"}],
+    "outputs": [{"name": "", "type": "uint256", "internalType": "uint256"}],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "getUserContributions",
+    "inputs": [{"name": "_user", "type": "address", "internalType": "address"}],
+    "outputs": [
+      {"name": "", "type": "uint256", "internalType": "uint256"},
+      {"name": "", "type": "uint256", "internalType": "uint256"},
+      {"name": "", "type": "uint256", "internalType": "uint256"},
+      {"name": "", "type": "uint256", "internalType": "uint256"}
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "getCurrentPhaseInfo",
+    "inputs": [],
+    "outputs": [
+      {"name": "", "type": "uint8", "internalType": "uint8"},
+      {"name": "", "type": "uint256", "internalType": "uint256"},
+      {"name": "", "type": "uint256", "internalType": "uint256"},
+      {"name": "", "type": "uint256", "internalType": "uint256"},
+      {"name": "", "type": "uint256", "internalType": "uint256"},
+      {"name": "", "type": "uint256", "internalType": "uint256"},
+      {"name": "", "type": "uint256", "internalType": "uint256"},
+      {"name": "", "type": "uint256", "internalType": "uint256"}
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "getSaleStats",
+    "inputs": [],
+    "outputs": [
+      {"name": "", "type": "uint256", "internalType": "uint256"},
+      {"name": "", "type": "uint256", "internalType": "uint256"},
+      {"name": "", "type": "uint256", "internalType": "uint256"}
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "contribute",
+    "inputs": [],
+    "outputs": [],
+    "stateMutability": "payable"
+  },
+  {
+    "type": "function",
+    "name": "pause",
+    "inputs": [],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "unpause",
+    "inputs": [],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "emergencyWithdraw",
+    "inputs": [],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  }
+] as const;
+
 export const contractAddresses = addresses;
 export const contractABIs = {
   trashToken: trashTokenABI,
@@ -127,7 +256,9 @@ export const contractABIs = {
   stakeNFT: stakeNFTABI,
   questSystem: questSystemABI,
   achievementNFT: achievementNFTABI,
-  emailVerifier: emailVerifierABI
+  emailVerifier: emailVerifierABI,
+  trashGenesis: trashGenesisABI
 };
+
 
 export { networkConfig };

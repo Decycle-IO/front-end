@@ -6,8 +6,74 @@ import TokenDistributionChart from './TokenDistributionChart';
 import VestingScheduleChart from './VestingScheduleChart';
 import PurchaseForm from './PurchaseForm';
 import GameUtilitySection from './GameUtilitySection';
+import { useTrashGenesis, SalePhase } from '../../hooks/useTrashGenesis';
+import { formatUnits } from 'viem';
 
 const TokenSalePage: React.FC = () => {
+  const { phaseInfo, saleStats, isPhaseInfoLoading, isSaleStatsLoading } = useTrashGenesis();
+  
+  // Format ETH amount
+  const formatEth = (amount: bigint | undefined): string => {
+    if (!amount) return '0';
+    return parseFloat(formatUnits(amount, 18)).toFixed(2);
+  };
+  
+  // Get phase status
+  const getPhaseStatus = (phase: number | undefined): string => {
+    if (!phaseInfo || phase === undefined) return 'COMING SOON';
+    
+    const currentPhase = phaseInfo.phase;
+    
+    if (phase < currentPhase) return 'COMPLETED';
+    if (phase === currentPhase) return 'CURRENT';
+    return 'COMING SOON';
+  };
+  
+  // Calculate progress percentage
+  const getProgressPercentage = (phase: number | undefined): number => {
+    if (!phaseInfo || phase === undefined || !phase) return 0;
+    
+    if (phase < phaseInfo.phase) return 100;
+    if (phase > phaseInfo.phase) return 0;
+    
+    // For current phase
+    if (phaseInfo.hardCap === 0n) return 0;
+    return Number((phaseInfo.raised * 100n) / phaseInfo.hardCap);
+  };
+  
+  // Get phase-specific token price
+  const getPhasePrice = (phase: number): string => {
+    switch (phase) {
+      case SalePhase.Private:
+        return '$0.0010'; // $0.001 per token
+      case SalePhase.Whitelist:
+        return '$0.0015'; // $0.0015 per token
+      case SalePhase.Public:
+        return '$0.0020'; // $0.002 per token
+      default:
+        return '$0.0000';
+    }
+  };
+  
+  // Get remaining days
+  const getRemainingDays = (): number => {
+    if (!phaseInfo || !phaseInfo.endTime) return 0;
+    
+    const now = BigInt(Math.floor(Date.now() / 1000));
+    if (now >= phaseInfo.endTime) return 0;
+    
+    const secondsRemaining = phaseInfo.endTime - now;
+    return Number(secondsRemaining / 86400n); // Convert seconds to days
+  };
+  
+  // Get total contributors
+  const getTotalContributors = (): string => {
+    if (!saleStats) return '0';
+    return saleStats.totalUsers.toString();
+  };
+  
+  // Loading state
+  const isLoading = isPhaseInfoLoading || isSaleStatsLoading;
   return (
     <Container>
       <div className="pt-8">
@@ -30,65 +96,148 @@ const TokenSalePage: React.FC = () => {
                 
                 {/* Phase rows with progress bars */}
                 <div className="space-y-4">
-                  {/* Private Round - Completed */}
-                  <div className="bg-forest/5 p-3 rounded-lg">
+                  {/* Private Round */}
+                  <div className={`${getPhaseStatus(SalePhase.Private) === 'CURRENT' ? 'bg-forest/10 border border-forest' : 'bg-forest/5'} p-3 rounded-lg`}>
                     <div className="flex justify-between items-center mb-1">
                       <h4 className="font-bold text-forest text-sm">Private Round</h4>
-                      <span className="inline-block bg-forest text-white text-xs px-2 py-0.5 rounded">COMPLETED</span>
+                      <span className={`inline-block ${getPhaseStatus(SalePhase.Private) === 'COMPLETED' ? 'bg-forest text-white' : getPhaseStatus(SalePhase.Private) === 'CURRENT' ? 'bg-forest text-white' : 'bg-slate/20 text-slate'} text-xs px-2 py-0.5 rounded`}>
+                        {isLoading ? 'LOADING...' : getPhaseStatus(SalePhase.Private)}
+                      </span>
                     </div>
                     <div className="flex justify-between text-xs text-slate mb-1">
-                      <span>50 ETH Goal</span>
-                      <span>$0.001 per $TRASH</span>
-                    </div>
-                    <div className="w-full bg-gray-200 rounded-full h-2">
-                      <div className="bg-forest h-2 rounded-full" style={{ width: '100%' }}></div>
-                    </div>
-                  </div>
-                  
-                  {/* Whitelist Round - Current */}
-                  <div className="bg-forest/10 p-3 rounded-lg border border-forest">
-                    <div className="flex justify-between items-center mb-1">
-                      <h4 className="font-bold text-forest text-sm">Whitelist Round</h4>
-                      <span className="inline-block bg-forest text-white text-xs px-2 py-0.5 rounded">CURRENT</span>
-                    </div>
-                    <div className="flex justify-between text-xs text-slate mb-1">
-                      <span>75 ETH Goal</span>
-                      <span>$0.0015 per $TRASH</span>
+                      <span>{isLoading ? 'Loading...' : `${formatEth(phaseInfo?.hardCap)} ETH Goal`}</span>
+                      <span>{getPhasePrice(SalePhase.Private)} per $TRASH</span>
                     </div>
                     <div className="w-full bg-gray-200 rounded-full h-2 mb-1">
-                      <div className="bg-forest h-2 rounded-full" style={{ width: '56%' }}></div>
-                    </div>
-                    <div className="flex justify-between text-xs">
-                      <span className="text-forest font-medium">42 ETH raised (56%)</span>
-                      <span className="text-slate">14 days remaining</span>
+                      <div className={`${getPhaseStatus(SalePhase.Private) === 'COMPLETED' || getPhaseStatus(SalePhase.Private) === 'CURRENT' ? 'bg-forest' : 'bg-gray-400'} h-2 rounded-full`} 
+                        style={{ width: `${getProgressPercentage(SalePhase.Private)}%` }}></div>
                     </div>
                     
-                    {/* Additional stats for current round */}
-                    <div className="grid grid-cols-2 gap-2 mt-2">
-                      <div className="bg-forest/5 p-2 rounded-lg">
-                        <span className="text-xs text-slate block">Contributors</span>
-                        <span className="text-sm font-bold text-forest">127</span>
-                      </div>
-                      <div className="bg-forest/5 p-2 rounded-lg">
-                        <span className="text-xs text-slate block">Avg. Donation</span>
-                        <span className="text-sm font-bold text-forest">0.33 ETH</span>
-                      </div>
-                    </div>
+                    {getPhaseStatus(SalePhase.Private) === 'CURRENT' && (
+                      <>
+                        <div className="flex justify-between text-xs">
+                          <span className="text-forest font-medium">
+                            {isLoading ? 'Loading...' : `${formatEth(phaseInfo?.raised)} ETH raised (${getProgressPercentage(SalePhase.Private)}%)`}
+                          </span>
+                          <span className="text-slate">
+                            {isLoading ? 'Loading...' : `${getRemainingDays()} days remaining`}
+                          </span>
+                        </div>
+                        
+                        {/* Additional stats for current round */}
+                        <div className="grid grid-cols-2 gap-2 mt-2">
+                          <div className="bg-forest/5 p-2 rounded-lg">
+                            <span className="text-xs text-slate block">Contributors</span>
+                            <span className="text-sm font-bold text-forest">
+                              {isLoading ? 'Loading...' : getTotalContributors()}
+                            </span>
+                          </div>
+                          <div className="bg-forest/5 p-2 rounded-lg">
+                            <span className="text-xs text-slate block">Avg. Donation</span>
+                            <span className="text-sm font-bold text-forest">
+                              {isLoading || !saleStats || saleStats.totalUsers === 0n ? '0.00 ETH' : 
+                                `${(Number(formatUnits(saleStats.totalRaised, 18)) / Number(saleStats.totalUsers)).toFixed(2)} ETH`}
+                            </span>
+                          </div>
+                        </div>
+                      </>
+                    )}
                   </div>
                   
-                  {/* Public Round - Coming Soon */}
-                  <div className="bg-forest/5 p-3 rounded-lg">
+                  {/* Whitelist Round */}
+                  <div className={`${getPhaseStatus(SalePhase.Whitelist) === 'CURRENT' ? 'bg-forest/10 border border-forest' : 'bg-forest/5'} p-3 rounded-lg`}>
                     <div className="flex justify-between items-center mb-1">
-                      <h4 className="font-bold text-forest text-sm">Public Round</h4>
-                      <span className="inline-block bg-slate/20 text-slate text-xs px-2 py-0.5 rounded">COMING SOON</span>
+                      <h4 className="font-bold text-forest text-sm">Whitelist Round</h4>
+                      <span className={`inline-block ${getPhaseStatus(SalePhase.Whitelist) === 'COMPLETED' ? 'bg-forest text-white' : getPhaseStatus(SalePhase.Whitelist) === 'CURRENT' ? 'bg-forest text-white' : 'bg-slate/20 text-slate'} text-xs px-2 py-0.5 rounded`}>
+                        {isLoading ? 'LOADING...' : getPhaseStatus(SalePhase.Whitelist)}
+                      </span>
                     </div>
                     <div className="flex justify-between text-xs text-slate mb-1">
-                      <span>75 ETH Goal</span>
-                      <span>$0.002 per $TRASH</span>
+                      <span>{isLoading ? 'Loading...' : `${formatEth(phaseInfo?.hardCap)} ETH Goal`}</span>
+                      <span>{getPhasePrice(SalePhase.Whitelist)} per $TRASH</span>
                     </div>
-                    <div className="w-full bg-gray-200 rounded-full h-2">
-                      <div className="bg-gray-400 h-2 rounded-full" style={{ width: '0%' }}></div>
+                    <div className="w-full bg-gray-200 rounded-full h-2 mb-1">
+                      <div className={`${getPhaseStatus(SalePhase.Whitelist) === 'COMPLETED' || getPhaseStatus(SalePhase.Whitelist) === 'CURRENT' ? 'bg-forest' : 'bg-gray-400'} h-2 rounded-full`} 
+                        style={{ width: `${getProgressPercentage(SalePhase.Whitelist)}%` }}></div>
                     </div>
+                    
+                    {getPhaseStatus(SalePhase.Whitelist) === 'CURRENT' && (
+                      <>
+                        <div className="flex justify-between text-xs">
+                          <span className="text-forest font-medium">
+                            {isLoading ? 'Loading...' : `${formatEth(phaseInfo?.raised)} ETH raised (${getProgressPercentage(SalePhase.Whitelist)}%)`}
+                          </span>
+                          <span className="text-slate">
+                            {isLoading ? 'Loading...' : `${getRemainingDays()} days remaining`}
+                          </span>
+                        </div>
+                        
+                        {/* Additional stats for current round */}
+                        <div className="grid grid-cols-2 gap-2 mt-2">
+                          <div className="bg-forest/5 p-2 rounded-lg">
+                            <span className="text-xs text-slate block">Contributors</span>
+                            <span className="text-sm font-bold text-forest">
+                              {isLoading ? 'Loading...' : getTotalContributors()}
+                            </span>
+                          </div>
+                          <div className="bg-forest/5 p-2 rounded-lg">
+                            <span className="text-xs text-slate block">Avg. Donation</span>
+                            <span className="text-sm font-bold text-forest">
+                              {isLoading || !saleStats || saleStats.totalUsers === 0n ? '0.00 ETH' : 
+                                `${(Number(formatUnits(saleStats.totalRaised, 18)) / Number(saleStats.totalUsers)).toFixed(2)} ETH`}
+                            </span>
+                          </div>
+                        </div>
+                      </>
+                    )}
+                  </div>
+                  
+                  {/* Public Round */}
+                  <div className={`${getPhaseStatus(SalePhase.Public) === 'CURRENT' ? 'bg-forest/10 border border-forest' : 'bg-forest/5'} p-3 rounded-lg`}>
+                    <div className="flex justify-between items-center mb-1">
+                      <h4 className="font-bold text-forest text-sm">Public Round</h4>
+                      <span className={`inline-block ${getPhaseStatus(SalePhase.Public) === 'COMPLETED' ? 'bg-forest text-white' : getPhaseStatus(SalePhase.Public) === 'CURRENT' ? 'bg-forest text-white' : 'bg-slate/20 text-slate'} text-xs px-2 py-0.5 rounded`}>
+                        {isLoading ? 'LOADING...' : getPhaseStatus(SalePhase.Public)}
+                      </span>
+                    </div>
+                    <div className="flex justify-between text-xs text-slate mb-1">
+                      <span>{isLoading ? 'Loading...' : `${formatEth(phaseInfo?.hardCap)} ETH Goal`}</span>
+                      <span>{getPhasePrice(SalePhase.Public)} per $TRASH</span>
+                    </div>
+                    <div className="w-full bg-gray-200 rounded-full h-2 mb-1">
+                      <div className={`${getPhaseStatus(SalePhase.Public) === 'COMPLETED' || getPhaseStatus(SalePhase.Public) === 'CURRENT' ? 'bg-forest' : 'bg-gray-400'} h-2 rounded-full`} 
+                        style={{ width: `${getProgressPercentage(SalePhase.Public)}%` }}></div>
+                    </div>
+                    
+                    {getPhaseStatus(SalePhase.Public) === 'CURRENT' && (
+                      <>
+                        <div className="flex justify-between text-xs">
+                          <span className="text-forest font-medium">
+                            {isLoading ? 'Loading...' : `${formatEth(phaseInfo?.raised)} ETH raised (${getProgressPercentage(SalePhase.Public)}%)`}
+                          </span>
+                          <span className="text-slate">
+                            {isLoading ? 'Loading...' : `${getRemainingDays()} days remaining`}
+                          </span>
+                        </div>
+                        
+                        {/* Additional stats for current round */}
+                        <div className="grid grid-cols-2 gap-2 mt-2">
+                          <div className="bg-forest/5 p-2 rounded-lg">
+                            <span className="text-xs text-slate block">Contributors</span>
+                            <span className="text-sm font-bold text-forest">
+                              {isLoading ? 'Loading...' : getTotalContributors()}
+                            </span>
+                          </div>
+                          <div className="bg-forest/5 p-2 rounded-lg">
+                            <span className="text-xs text-slate block">Avg. Donation</span>
+                            <span className="text-sm font-bold text-forest">
+                              {isLoading || !saleStats || saleStats.totalUsers === 0n ? '0.00 ETH' : 
+                                `${(Number(formatUnits(saleStats.totalRaised, 18)) / Number(saleStats.totalUsers)).toFixed(2)} ETH`}
+                            </span>
+                          </div>
+                        </div>
+                      </>
+                    )}
                   </div>
                 </div>
               </Card>
