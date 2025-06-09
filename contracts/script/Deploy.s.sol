@@ -8,6 +8,8 @@ import "../src/core/AchievementNFT.sol";
 import "../src/core/EmailVerifier.sol";
 import "../src/core/RecyclingSystem.sol";
 import "../src/core/QuestSystem.sol";
+import "../src/core/TrashGenesis.sol";
+import "../src/interfaces/ITrashGenesis.sol";
 import "../src/mocks/TestUSDC.sol";
 
 /**
@@ -23,6 +25,7 @@ contract Deploy is Script {
     EmailVerifier public emailVerifier;
     RecyclingSystem public recyclingSystem;
     QuestSystem public questSystem;
+    TrashGenesis public trashGenesis;
 
     // Deployment addresses
     address public deployerAddress;
@@ -33,6 +36,7 @@ contract Deploy is Script {
     address public emailVerifierAddress;
     address public recyclingSystemAddress;
     address public questSystemAddress;
+    address public trashGenesisAddress;
 
     // Deployment flags
     bool public skipTrashToken = false;
@@ -42,6 +46,7 @@ contract Deploy is Script {
     bool public skipEmailVerifier = false;
     bool public skipRecyclingSystem = false;
     bool public skipQuestSystem = false;
+    bool public skipTrashGenesis = false;
 
     /**
      * @dev Main deployment function
@@ -67,6 +72,7 @@ contract Deploy is Script {
         deployEmailVerifier();
         deployRecyclingSystem();
         deployQuestSystem();
+        deployTrashGenesis();
         
         // Setup contract permissions and relationships
         setupContractPermissions();
@@ -122,6 +128,12 @@ contract Deploy is Script {
             questSystemAddress = addr;
             skipQuestSystem = true;
             console.log("Using existing QuestSystem at:", questSystemAddress);
+        } catch {}
+        
+        try vm.envAddress("TRASH_GENESIS_ADDRESS") returns (address addr) {
+            trashGenesisAddress = addr;
+            skipTrashGenesis = true;
+            console.log("Using existing TrashGenesis at:", trashGenesisAddress);
         } catch {}
     }
     
@@ -283,6 +295,64 @@ contract Deploy is Script {
     /**
      * @dev Log all deployed contract addresses
      */
+    /**
+     * @dev Deploy TrashGenesis contract
+     */
+    function deployTrashGenesis() internal {
+        if (skipTrashGenesis) {
+            trashGenesis = TrashGenesis(trashGenesisAddress);
+            return;
+        }
+        
+        console.log("Deploying TrashGenesis...");
+        // ETH price in USD (scaled by 1e8) - $2500 per ETH
+        uint256 initialEthPrice = 250_000_000_000;
+        trashGenesis = new TrashGenesis(
+            trashTokenAddress,
+            deployerAddress, // Treasury address (initially set to deployer)
+            initialEthPrice
+        );
+        trashGenesisAddress = address(trashGenesis);
+        console.log("TrashGenesis deployed at:", trashGenesisAddress);
+        
+        // Setup initial phase configurations
+        // Private phase: $0.001 per token, 50 ETH hard cap, 0.1 ETH min, 5 ETH max
+        trashGenesis.updatePhaseConfig(
+            ITrashGenesis.SalePhase.Private,
+            1000, // $0.001 per token (scaled by 1e6)
+            50 ether,
+            0.1 ether,
+            5 ether
+        );
+        
+        // Whitelist phase: $0.0015 per token, 75 ETH hard cap, 0.1 ETH min, 3 ETH max
+        trashGenesis.updatePhaseConfig(
+            ITrashGenesis.SalePhase.Whitelist,
+            1500, // $0.0015 per token (scaled by 1e6)
+            75 ether,
+            0.1 ether,
+            3 ether
+        );
+        
+        // Public phase: $0.002 per token, 75 ETH hard cap, 0.05 ETH min, 2 ETH max
+        trashGenesis.updatePhaseConfig(
+            ITrashGenesis.SalePhase.Public,
+            2000, // $0.002 per token (scaled by 1e6)
+            75 ether,
+            0.05 ether,
+            2 ether
+        );
+        
+        // Authorize TrashGenesis as a minter for TrashToken
+        if (!trashToken.isAuthorizedMinter(trashGenesisAddress)) {
+            trashToken.authorizeMinter(trashGenesisAddress);
+            console.log("Authorized TrashGenesis as TrashToken minter");
+        }
+    }
+    
+    /**
+     * @dev Log all deployed contract addresses
+     */
     function logDeployedAddresses() internal view {
         console.log("\n--- Deployed Contract Addresses ---");
         console.log("TrashToken:", trashTokenAddress);
@@ -292,6 +362,7 @@ contract Deploy is Script {
         console.log("EmailVerifier:", emailVerifierAddress);
         console.log("RecyclingSystem:", recyclingSystemAddress);
         console.log("QuestSystem:", questSystemAddress);
+        console.log("TrashGenesis:", trashGenesisAddress);
         console.log("----------------------------------\n");
     }
 }
