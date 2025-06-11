@@ -70,36 +70,6 @@ const TechnicalSpecs: React.FC<TechnicalSpecsProps> = () => {
           </div>
         </section>
 
-        {/* NFC Integration */}
-        <section className="mb-8">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">NFC Integration Details</h3>
-          <div className="bg-green-50 border border-green-200 rounded-lg p-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <h4 className="font-semibold text-green-800 mb-3">🏷️ Event Wristband Integration</h4>
-                <div className="space-y-2 text-sm text-green-700">
-                  <div><strong>System:</strong> ETHGlobal event NFC wristband system</div>
-                  <div><strong>API Service:</strong> Event API provides wallet mapping</div>
-                  <div><strong>Process:</strong> Wristband NFC ID → API call → wallet address</div>
-                  <div><strong>Authentication:</strong> Handled by event infrastructure</div>
-                </div>
-              </div>
-              
-              <div>
-                <h4 className="font-semibold text-green-800 mb-3">📡 Communication Flow</h4>
-                <div className="space-y-2 text-sm text-green-700">
-                  <div>1. NFC wristband tap detected by reader</div>
-                  <div>2. NFC ID sent to event API for wallet resolution</div>
-                  <div>3. Item detection sensors activate</div>
-                  <div>4. Blockchain transaction recorded</div>
-                  <div>5. User feedback provided</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-
         {/* Frontend Technology */}
         <section className="mb-8">
           <h3 className="text-xl font-semibold text-gray-800 mb-4">Frontend & Display Systems</h3>
