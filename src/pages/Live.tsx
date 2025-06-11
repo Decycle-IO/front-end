@@ -7,6 +7,7 @@ import LocationMap from '../components/live/LocationMap';
 import ProcessFlow from '../components/live/ProcessFlow';
 import VolunteerGuide from '../components/live/VolunteerGuide';
 import TechnicalSpecs from '../components/live/TechnicalSpecs';
+import DemoScripts from '../components/live/DemoScripts';
 
 const Live: React.FC = () => {
   const [activeSection, setActiveSection] = useState('overview');
@@ -18,6 +19,7 @@ const Live: React.FC = () => {
     { id: 'process', title: 'How It Works', component: ProcessFlow },
     { id: 'volunteers', title: 'Volunteer Guide', component: VolunteerGuide },
     { id: 'technical', title: 'Technical Specs', component: TechnicalSpecs },
+    { id: 'scripts', title: 'Demo Scripts', component: DemoScripts },
   ];
 
   const ActiveComponent = sections.find(section => section.id === activeSection)?.component || SystemOverview;

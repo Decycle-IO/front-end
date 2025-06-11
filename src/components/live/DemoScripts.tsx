@@ -2,9 +2,9 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 interface DemoScriptsProps {
-  gameStats?: any;
-  currentBin?: any;
-  recentActivity?: any;
+  gameStats?: unknown;
+  currentBin?: unknown;
+  recentActivity?: unknown;
   isLoading?: boolean;
 }
 
@@ -23,35 +23,30 @@ const DemoScripts: React.FC<DemoScriptsProps> = () => {
           <h3 className="text-xl font-semibold text-gray-800 mb-4">30-Second Elevator Pitch</h3>
           <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
             <div className="mb-4">
-              <h4 className="font-semibold text-blue-800 mb-2">🎯 For Passersby & Quick Interest</h4>
+              <h4 className="font-semibold text-blue-800 mb-2">🌍 For Everyone - Making Environmental Action Fun</h4>
               <div className="bg-white rounded-lg p-4 border border-blue-200">
                 <p className="text-gray-700 leading-relaxed mb-3">
-                  "Hey! This is <strong>Trash-Cannes</strong> - we're turning recycling into a game using blockchain technology. 
-                  Just tap your event badge on our smart trash can, drop in a metal or plastic item, and you'll instantly 
-                  earn points that can be exchanged for prizes!"
-                </p>
-                <p className="text-gray-700 leading-relaxed">
-                  "You can see the live leaderboard here, unlock achievement NFTs, and even redeem them for physical merchandise. 
-                  It's a fun way to make recycling rewarding and transparent using Web3 technology."
+                  "Hey! This is <strong>Trash-Cannes</strong> - we're proving that helping the environment can be gamified! 
+                  Just tap your event badge here, drop in a recyclable item, and earn points to climb our live leaderboard!"
                 </p>
               </div>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
-                <h5 className="font-medium text-blue-700 mb-2">Key Points to Emphasize:</h5>
+                <h5 className="font-medium text-blue-700 mb-2">🎯 Key Points:</h5>
                 <ul className="text-sm text-blue-600 space-y-1">
-                  <li>• Instant points for recycling</li>
-                  <li>• No wallet setup needed (NFC badge)</li>
-                  <li>• Real-time leaderboard competition</li>
-                  <li>• Physical rewards for achievements</li>
+                  <li>• Items go to actual recycling facilities</li>
+                  <li>• Instant feedback and points system</li>
+                  <li>• Live leaderboard creates competition</li>
+                  <li>• Simple NFC tap - no app downloads</li>
                 </ul>
               </div>
               <div>
-                <h5 className="font-medium text-blue-700 mb-2">Call to Action:</h5>
+                <h5 className="font-medium text-blue-700 mb-2">💫 Demo Flow:</h5>
                 <ul className="text-sm text-blue-600 space-y-1">
-                  <li>• "Want to try it? Just tap your badge here!"</li>
-                  <li>• "Check out the leaderboard - can you make top 10?"</li>
-                  <li>• "Scan this QR code to see your stats on your phone"</li>
+                  <li>• "Try it out - just tap your badge here"</li>
+                  <li>• "Check the leaderboard - see where you rank"</li>
+                  <li>• "Unlock achievements for cool rewards"</li>
                 </ul>
               </div>
             </div>
@@ -62,106 +57,105 @@ const DemoScripts: React.FC<DemoScriptsProps> = () => {
         <section className="mb-8">
           <h3 className="text-xl font-semibold text-gray-800 mb-4">5-Minute Detailed Walkthrough</h3>
           <div className="bg-green-50 border border-green-200 rounded-lg p-6">
-            <h4 className="font-semibold text-green-800 mb-4">🎮 For Engaged Visitors & Developers</h4>
+            <h4 className="font-semibold text-green-800 mb-4">🎮 For Engaged Visitors</h4>
             <div className="space-y-6">
-              {/* Introduction */}
+              {/* The Problem */}
               <div className="bg-white rounded-lg p-4 border border-green-200">
-                <h5 className="font-medium text-green-700 mb-2">1. Introduction (30 seconds)</h5>
+                <h5 className="font-medium text-green-700 mb-2">1. The Problem (45 seconds)</h5>
                 <p className="text-sm text-green-600 mb-2">
-                  "Welcome to Trash-Cannes! We're demonstrating how blockchain technology can gamify environmental action. 
-                  This isn't just about recycling - it's about creating sustainable incentive systems using smart contracts, 
-                  NFTs, and real-world integration."
+                  "Recycling is important, but it's usually boring and you never see the results. 
+                  Most people want to recycle more, but there's no immediate feedback or reward."
                 </p>
-                <p className="text-xs text-green-500">
-                  <strong>Show:</strong> Point to the booth display, smart trash can, and recycling center
-                </p>
-              </div>
-
-              {/* System Demo */}
-              <div className="bg-white rounded-lg p-4 border border-green-200">
-                <h5 className="font-medium text-green-700 mb-2">2. Live System Demo (2 minutes)</h5>
-                <div className="space-y-2 text-sm text-green-600">
-                  <p><strong>Step 1:</strong> "Your event badge is already linked to a wallet address. Watch what happens when I tap it here..."</p>
-                  <p><strong>Step 2:</strong> "Now I'll deposit this [metal/plastic] item. The sensors automatically detect the material type..."</p>
-                  <p><strong>Step 3:</strong> "Instantly, the smart contract records this on the blockchain and awards points. See the leaderboard update in real-time!"</p>
-                  <p><strong>Step 4:</strong> "If I unlock an achievement, I get an NFT that can be redeemed for physical merchandise at our recycling center."</p>
-                </div>
-                <p className="text-xs text-green-500 mt-2">
-                  <strong>Show:</strong> Actual deposit process, point to leaderboard changes, show achievement popup if triggered
-                </p>
-              </div>
-
-              {/* Technical Deep Dive */}
-              <div className="bg-white rounded-lg p-4 border border-green-200">
-                <h5 className="font-medium text-green-700 mb-2">3. Technical Architecture (1.5 minutes)</h5>
-                <div className="space-y-2 text-sm text-green-600">
-                  <p>"Behind the scenes, we have smart contracts handling the game logic, points tracking, and NFT minting. 
-                  The trash can acts as a hardware oracle, automatically calling contract functions when items are deposited."</p>
-                  <p>"We're using a two-phase system: pre-event donations create 'Green Guardians' who get special recognition, 
-                  then during the live event, we have the full recycling game with economic incentives."</p>
-                  <p>"The bin purchase mechanism creates a circular economy - someone pays $10 USDC for the contents, 
-                  brings them to verification, and gets $15 back as a reward for completing the recycling loop."</p>
-                </div>
-              </div>
-
-              {/* Impact & Vision */}
-              <div className="bg-white rounded-lg p-4 border border-green-200">
-                <h5 className="font-medium text-green-700 mb-2">4. Impact & Future Vision (1 minute)</h5>
                 <p className="text-sm text-green-600">
-                  "This demonstrates how blockchain can create transparent, automated incentive systems for environmental action. 
-                  Imagine scaling this to cities, universities, or corporate campuses - creating sustainable behavior through 
-                  gamification and economic rewards, all tracked immutably on the blockchain."
+                  "We thought - what if recycling felt more like playing a game? What if you got instant feedback and could compete with friends?"
                 </p>
                 <p className="text-xs text-green-500 mt-2">
-                  <strong>Mention:</strong> Potential for broader applications in cities, universities, corporate campuses
+                  <strong>Connect:</strong> "Anyone here ever forget to recycle because it felt like a chore?"
+                </p>
+              </div>
+
+              {/* The Solution */}
+              <div className="bg-white rounded-lg p-4 border border-green-200">
+                <h5 className="font-medium text-green-700 mb-2">2. Live Demo (2 minutes)</h5>
+                <div className="space-y-2 text-sm text-green-600">
+                  <p><strong>Step 1:</strong> "I tap my badge here - the system knows who I am instantly."</p>
+                  <p><strong>Step 2:</strong> "Drop in this bottle - sensors detect it's plastic and award points automatically."</p>
+                  <p><strong>Step 3:</strong> "Check the leaderboard - I just moved up! Competition makes it more engaging."</p>
+                  <p><strong>Step 4:</strong> "Achievement unlocked! I can redeem this for actual merchandise at the recycling center."</p>
+                </div>
+                <p className="text-xs text-green-500 mt-2">
+                  <strong>Show:</strong> Live deposit, point to leaderboard changes, show achievement popup
+                </p>
+              </div>
+
+              {/* The Tech */}
+              <div className="bg-white rounded-lg p-4 border border-green-200">
+                <h5 className="font-medium text-green-700 mb-2">3. How It Works (1.5 minutes)</h5>
+                <div className="space-y-2 text-sm text-green-600">
+                  <p>"The smart trash can automatically detects what you put in and records it on the blockchain. 
+                  Your event badge is linked to a wallet, so no app downloads or complicated setup."</p>
+                  <p>"When the bin gets full, someone can pay $10 to buy the contents, take them to our recycling center, 
+                  and get $15 back - creating economic incentives for proper recycling."</p>
+                  <p>"Everything is transparent and verifiable. You can see exactly where your items go and track your impact over time."</p>
+                </div>
+              </div>
+
+              {/* The Vision */}
+              <div className="bg-white rounded-lg p-4 border border-green-200">
+                <h5 className="font-medium text-green-700 mb-2">4. Bigger Applications (30 seconds)</h5>
+                <p className="text-sm text-green-600">
+                  "This same approach could work in offices, schools, or entire cities. Imagine neighborhood recycling competitions 
+                  or workplace sustainability challenges. The technology makes it easy to track and reward good behavior at scale."
+                </p>
+                <p className="text-xs text-green-500 mt-2">
+                  <strong>Ask:</strong> "Where else could you see this kind of system being useful?"
                 </p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Technical Deep Dive */}
+        {/* Key Talking Points */}
         <section className="mb-8">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">Technical Deep Dive Script</h3>
+          <h3 className="text-xl font-semibold text-gray-800 mb-4">Key Talking Points</h3>
           <div className="bg-purple-50 border border-purple-200 rounded-lg p-6">
-            <h4 className="font-semibold text-purple-800 mb-4">⚡ For Developers & Technical Audience</h4>
+            <h4 className="font-semibold text-purple-800 mb-4">💡 For Deeper Conversations</h4>
             <div className="space-y-4">
               <div className="bg-white rounded-lg p-4 border border-purple-200">
-                <h5 className="font-medium text-purple-700 mb-2">Smart Contract Architecture</h5>
+                <h5 className="font-medium text-purple-700 mb-2">🎮 Gamification Works</h5>
                 <p className="text-sm text-purple-600 mb-2">
-                  "We have three main contracts: CannesGame.sol handles the core logic and donations, 
-                  CannesNFT.sol manages achievement NFTs with redemption tracking, and CannesViews.sol provides optimized data queries for the frontend."
+                  "Games are powerful at motivating behavior. Instead of using that psychology to sell products or increase screen time, 
+                  we're applying it to recycling. Every point represents actual items processed at recycling facilities."
                 </p>
                 <p className="text-xs text-purple-500">
-                  <strong>Technical details:</strong> OpenZeppelin base contracts, gas optimization through packed structs, event-driven updates
+                  <strong>Key insight:</strong> "The same mechanics that make mobile games engaging can make good habits stick."
                 </p>
               </div>
 
               <div className="bg-white rounded-lg p-4 border border-purple-200">
-                <h5 className="font-medium text-purple-700 mb-2">Hardware Oracle Integration</h5>
+                <h5 className="font-medium text-purple-700 mb-2">🤝 Community Effect</h5>
                 <p className="text-sm text-purple-600 mb-2">
-                  "The smart trash can runs detection algorithms to classify items as metal or plastic, then automatically calls 
-                  recordDeposit() on the smart contract. NFC integration resolves badge IDs to wallet addresses through a secure mapping system."
+                  "Individual recycling feels insignificant, but seeing others participate makes it feel worthwhile. 
+                  The leaderboard shows you're part of a group effort, which encourages continued participation."
                 </p>
                 <p className="text-xs text-purple-500">
-                  <strong>Security:</strong> Rate limiting, encrypted NFC mapping, hardware wallet for trash can private keys
+                  <strong>Social proof:</strong> "When people see others recycling, they're more likely to do it too."
                 </p>
               </div>
 
               <div className="bg-white rounded-lg p-4 border border-purple-200">
-                <h5 className="font-medium text-purple-700 mb-2">Real-time Frontend</h5>
+                <h5 className="font-medium text-purple-700 mb-2">🔍 Verifiable Impact</h5>
                 <p className="text-sm text-purple-600 mb-2">
-                  "React/TypeScript frontend with Web3 integration listens for contract events to update the UI in real-time. 
-                  We use view functions for efficient data queries and maintain local state for smooth UX."
+                  "People are skeptical of environmental claims because they can't verify them. Our blockchain tracking 
+                  lets you see exactly where your items go and confirm they reach recycling facilities."
                 </p>
                 <p className="text-xs text-purple-500">
-                  <strong>Performance:</strong> Event listeners, optimistic updates, batch queries for leaderboard data
+                  <strong>Trust factor:</strong> "Transparency increases participation because people can verify their impact."
                 </p>
               </div>
             </div>
           </div>
         </section>
-
 
         {/* Common Questions & Answers */}
         <section>
@@ -169,37 +163,37 @@ const DemoScripts: React.FC<DemoScriptsProps> = () => {
           <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
             <div className="space-y-4">
               <div className="bg-white rounded-lg p-4 border border-gray-200">
-                <h5 className="font-medium text-gray-800 mb-2">Q: "Is this actually helping the environment?"</h5>
+                <h5 className="font-medium text-gray-800 mb-2">Q: "Does this actually help the environment?"</h5>
                 <p className="text-sm text-gray-600">
-                  A: "Absolutely! We're collecting real recyclable materials and ensuring they reach proper recycling facilities. 
-                  The blockchain layer adds transparency and incentives, but the environmental impact is genuine. Plus, we're 
-                  demonstrating how technology can scale sustainable behaviors."
+                  A: "Yes - every item goes to actual recycling facilities. But the bigger impact is behavioral: 
+                  when recycling feels rewarding and social, people do it more consistently. The gamification 
+                  creates habits that extend beyond this event."
                 </p>
               </div>
 
               <div className="bg-white rounded-lg p-4 border border-gray-200">
-                <h5 className="font-medium text-gray-800 mb-2">Q: "Why use blockchain for this?"</h5>
+                <h5 className="font-medium text-gray-800 mb-2">Q: "Why not just recycle normally?"</h5>
                 <p className="text-sm text-gray-600">
-                  A: "Blockchain provides transparency, immutable tracking, and enables programmable incentives through smart contracts. 
-                  Users can verify their impact, achievements are permanently recorded, and the system can operate autonomously without 
-                  central authority. It's perfect for creating trust in environmental claims."
+                  A: "Normal recycling has low engagement rates. Adding instant feedback, competition, and rewards 
+                  significantly increases participation. When something feels like a game, people are more likely 
+                  to stick with it."
                 </p>
               </div>
 
               <div className="bg-white rounded-lg p-4 border border-gray-200">
-                <h5 className="font-medium text-gray-800 mb-2">Q: "Can this scale beyond events?"</h5>
+                <h5 className="font-medium text-gray-800 mb-2">Q: "Could this work in other places?"</h5>
                 <p className="text-sm text-gray-600">
-                  A: "Definitely! Imagine this in office buildings, universities, or public spaces. The same principles apply: 
-                  automated detection, transparent tracking, and economic incentives. We could integrate with existing waste 
-                  management systems and create city-wide recycling competitions."
+                  A: "Definitely. The same principles could apply to offices, schools, or neighborhoods. 
+                  Any behavior you want to encourage can benefit from instant feedback, tracking, and social competition."
                 </p>
               </div>
 
               <div className="bg-white rounded-lg p-4 border border-gray-200">
-                <h5 className="font-medium text-gray-800 mb-2">Q: "What happens to my points after the event?"</h5>
+                <h5 className="font-medium text-gray-800 mb-2">Q: "What's the technical implementation?"</h5>
                 <p className="text-sm text-gray-600">
-                  A: "Your points and achievement NFTs remain in your wallet permanently as a record of your participation. 
-                  They could potentially be used in future events or integrated into a broader ecosystem of environmental action rewards."
+                  A: "Smart contracts handle the logic, NFC readers identify users, sensors detect item types, 
+                  and the frontend shows real-time updates. The blockchain provides transparency and permanent records 
+                  of environmental impact."
                 </p>
               </div>
             </div>
