@@ -63,7 +63,6 @@ const TechnicalSpecs: React.FC<TechnicalSpecsProps> = () => {
                     <li>• Detection algorithm for item classification</li>
                     <li>• Blockchain client for contract calls</li>
                     <li>• NFC ID to wallet address mapping</li>
-                    <li>• Error handling and retry logic</li>
                   </ul>
                 </div>
               </div>
