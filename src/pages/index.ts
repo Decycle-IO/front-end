@@ -3,3 +3,8 @@ export { Dashboard } from './Dashboard';
 export { default as Cannes } from './Cannes';
 export { default as Live } from './Live';
 export { default as Token } from './Token';
+
+// Dapp Pages
+export { DappHome } from './DappHome';
+export { DappCollection } from './DappCollection';
+export { DappStaking } from './DappStaking';

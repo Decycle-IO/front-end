@@ -1,6 +1,7 @@
 import React from 'react';
 import type { DAppLayoutProps } from '../../types/ui';
 import DAppHeader from './DAppHeader';
+import { BottomNav } from '../dapp/ui/BottomNav';
 
 export const DAppLayout: React.FC<DAppLayoutProps> = ({
   children,
@@ -50,6 +51,9 @@ export const DAppLayout: React.FC<DAppLayoutProps> = ({
           <p>&copy; {new Date().getFullYear()} Decycle. All rights reserved.</p>
         </div>
       </footer>
+      
+      {/* Bottom Navigation for Mobile */}
+      <BottomNav />
     </div>
   );
 };

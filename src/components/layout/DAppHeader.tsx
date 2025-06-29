@@ -4,12 +4,11 @@ import { Link, useLocation } from 'react-router-dom';
 import { ConnectWallet } from '../dapp/wallet/ConnectWallet';
 
 const navItems = [
-  { path: '/dashboard', label: 'Dashboard' },
-  { path: '/garbage-cans', label: 'Garbage Cans' },
-  { path: '/staking', label: 'Staking' },
-  { path: '/quests', label: 'Quests' },
-  { path: '/achievements', label: 'Achievements' },
-  { path: '/profile', label: 'Profile' },
+  { path: '/dapp', label: 'Dashboard' },
+  { path: '/dapp/collection', label: 'Collection' },
+  { path: '/dapp/stake', label: 'Staking' },
+  { path: '/dapp/achievements', label: 'Achievements' },
+  { path: '/dapp/profile', label: 'Profile' },
 ];
 
 const DAppHeader = () => {
@@ -27,7 +26,7 @@ const DAppHeader = () => {
         <div className="flex items-center justify-between">
           {/* Logo and Navigation */}
           <div className="flex items-center">
-            <Link to="/dashboard" className="flex items-center mr-8">
+            <Link to="/dapp" className="flex items-center mr-8">
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
