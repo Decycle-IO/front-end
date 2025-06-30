@@ -62,43 +62,33 @@ const Hero: React.FC = () => {
               />
             </div>
             
-            {/* Sponsor Logos - Desktop */}
-            <div className="hidden md:flex items-center justify-between w-full mt-8 px-2 relative z-20">
-              <a href="https://ethglobal.com" target="_blank" rel="noopener noreferrer" className="transition-all duration-300 hover:opacity-80 p-4 flex items-center">
-                <img src="/eth-global-prague.svg" alt="ETHGlobal Prague" className="h-12 w-auto" />
-              </a>
-              <a href="https://vialabs.io" target="_blank" rel="noopener noreferrer" className="transition-all duration-300 hover:opacity-80 p-4 flex items-center">
-                <img src="/via-logo-black.svg" alt="Via Labs" className="h-6 max-w-none" />
-              </a>
-              <a href="https://blockscout.com" target="_blank" rel="noopener noreferrer" className="transition-all duration-300 hover:opacity-80 p-4 flex items-center">
-                <img src="/blockscout.svg" alt="Blockscout" className="h-8 w-auto" />
-              </a>
-              <a href="https://flow.com" target="_blank" rel="noopener noreferrer" className="transition-all duration-300 hover:opacity-80 p-4 flex items-center">
-                <img src="/flow.svg" alt="Flow" className="h-8 w-auto" />
-              </a>
-            </div>
-            
-            {/* Sponsor Logos - Mobile (Two-Row Layout) */}
-            <div className="md:hidden mt-6 flex flex-col items-center">
-              <div className="grid grid-rows-2 gap-y-4 w-full">
-                {/* First row - ETHGlobal Prague and Via Labs */}
-                <div className="flex justify-center items-center space-x-6">
-                  <a href="https://ethglobal.com" target="_blank" rel="noopener noreferrer" className="transition-all duration-300 hover:opacity-80">
-                    <img src="/eth-global-prague.svg" alt="ETHGlobal Prague" className="h-10 w-auto" />
-                  </a>
-                  <a href="https://vialabs.io" target="_blank" rel="noopener noreferrer" className="transition-all duration-300 hover:opacity-80">
-                    <img src="/via-logo-black.svg" alt="Via Labs" className="h-5 max-w-none" />
-                  </a>
-                </div>
-                {/* Second row - Blockscout and Flow */}
-                <div className="flex justify-center items-center space-x-6">
-                  <a href="https://blockscout.com" target="_blank" rel="noopener noreferrer" className="transition-all duration-300 hover:opacity-80">
-                    <img src="/blockscout.svg" alt="Blockscout" className="h-7 w-auto" />
-                  </a>
-                  <a href="https://flow.com" target="_blank" rel="noopener noreferrer" className="transition-all duration-300 hover:opacity-80">
-                    <img src="/flow.svg" alt="Flow" className="h-7 w-auto" />
-                  </a>
-                </div>
+            {/* Sponsor Logos */}
+            <div className="mt-8 relative z-20">
+              <div className="flex items-center justify-center gap-8 md:gap-12 w-full">
+                <a 
+                  href="https://ethglobal.com" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="transition-all duration-300 hover:opacity-80 hover:scale-105 p-4 rounded-lg bg-white/5 backdrop-blur-sm border border-white/10"
+                >
+                  <img 
+                    src="/eth-global-prague.svg" 
+                    alt="ETHGlobal Prague" 
+                    className="h-12 md:h-16 w-auto" 
+                  />
+                </a>
+                <a 
+                  href="https://vialabs.io" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="transition-all duration-300 hover:opacity-80 hover:scale-105 p-4 rounded-lg bg-white/5 backdrop-blur-sm border border-white/10"
+                >
+                  <img 
+                    src="/via-logo-black.svg" 
+                    alt="Via Labs" 
+                    className="h-7 md:h-10 max-w-none" 
+                  />
+                </a>
               </div>
             </div>
           </motion.div>
