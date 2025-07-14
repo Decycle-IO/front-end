@@ -4,21 +4,18 @@ import { ActionButton } from './ActionButton';
 
 interface StakingPositionCardProps {
   position: StakingPosition;
-  onWithdraw: (positionId: number) => void;
-  isLoading?: boolean;
+  // onWithdraw and isLoading removed
 }
 
 interface StakingOpportunityCardProps {
   opportunity: StakingOpportunity;
   onStake: (canId: number) => void;
-  isLoading?: boolean;
+  // isLoading removed
 }
 
 // Card for displaying an existing staking position
 export const StakingPositionCard: React.FC<StakingPositionCardProps> = ({
-  position,
-  onWithdraw,
-  isLoading = false,
+  position
 }) => {
   // Calculate days staked
   const getDaysStaked = (): number => {
@@ -70,8 +67,7 @@ export const StakingPositionCard: React.FC<StakingPositionCardProps> = ({
 // Card for displaying a staking opportunity
 export const StakingOpportunityCard: React.FC<StakingOpportunityCardProps> = ({
   opportunity,
-  onStake,
-  isLoading = false,
+  onStake
 }) => {
   return (
     <div className="bg-white rounded-xl shadow-md border border-forest/10 overflow-hidden">
@@ -113,8 +109,8 @@ export const StakingOpportunityCard: React.FC<StakingOpportunityCardProps> = ({
             <span>Capacity: {Math.round((opportunity.totalStaked / (opportunity.maxStake * 20)) * 100)}%</span>
           </div>
           <div className="w-full bg-gray-200 rounded-full h-2.5 mb-4">
-            <div 
-              className="h-2.5 rounded-full bg-electric" 
+            <div
+              className="h-2.5 rounded-full bg-electric"
               style={{ width: `${Math.min(100, (opportunity.totalStaked / (opportunity.maxStake * 20)) * 100)}%` }}
             ></div>
           </div>
@@ -124,7 +120,6 @@ export const StakingOpportunityCard: React.FC<StakingOpportunityCardProps> = ({
         <ActionButton
           label="Stake USDC"
           onClick={() => onStake(opportunity.canId)}
-          isLoading={isLoading}
           fullWidth
           variant="primary"
           icon={

@@ -4,17 +4,12 @@ import { TrashCanGrid } from '../components/dapp/collection/TrashCanGrid';
 import { useTrashCanCollection } from '../hooks/dapp/useTrashCanCollection';
 
 export const DappCollection: React.FC = () => {
-  const { trashCans } = useTrashCanCollection({ minFillLevel: 0, onlyActive: true });
-  
-  // Calculate total potential earnings
-  const totalPotentialEarnings = trashCans.reduce((total, can) => {
-    return total + (can.fillLevel / 10); // Approximate earnings based on fill level
-  }, 0).toFixed(2);
-  
+  useTrashCanCollection({ minFillLevel: 0, onlyActive: true });
+
   return (
     <DAppLayout>
       <div className="container mx-auto px-4 py-4">
-        
+
         {/* Quick Actions */}
         <div className="flex gap-2 mb-4 overflow-x-auto pb-2 scrollbar-hide">
           <button className="flex items-center justify-center px-4 py-2 bg-electric text-white font-medium rounded-lg whitespace-nowrap">
@@ -45,7 +40,7 @@ export const DappCollection: React.FC = () => {
 
         {/* Trash Can Grid */}
         <TrashCanGrid />
-        
+
         {/* How It Works - Compact Version */}
         <div className="bg-blue-50 border-l-4 border-blue-500 p-3 rounded mt-4 text-xs">
           <div className="flex">

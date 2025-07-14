@@ -7,12 +7,12 @@ import { useTrashCanStats } from '../hooks/dapp/useTrashCanStats';
 import { Link } from 'react-router-dom';
 
 export const DappHome: React.FC = () => {
-  const { userStats, systemStats } = useTrashCanStats();
-  
+  const { userStats } = useTrashCanStats();
+
   return (
     <DAppLayout>
       <div className="container mx-auto px-4 py-6">
-        
+
         {/* User Impact Summary */}
         <div className="bg-white rounded-xl shadow-sm border border-forest/10 p-6 mb-8">
           <h2 className="text-xl font-bold text-forest mb-4">Your Impact Summary</h2>
@@ -28,7 +28,7 @@ export const DappHome: React.FC = () => {
                 <p className="text-xl font-bold text-green-900">{userStats.totalCollected} cans</p>
               </div>
             </div>
-            
+
             <div className="bg-blue-50 rounded-lg p-4 flex items-center">
               <div className="bg-blue-100 p-3 rounded-full mr-4">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-600" viewBox="0 0 20 20" fill="currentColor">
@@ -41,7 +41,7 @@ export const DappHome: React.FC = () => {
                 <p className="text-xl font-bold text-blue-900">{userStats.totalEarned} TRASH</p>
               </div>
             </div>
-            
+
             <div className="bg-purple-50 rounded-lg p-4 flex items-center">
               <div className="bg-purple-100 p-3 rounded-full mr-4">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-purple-600" viewBox="0 0 20 20" fill="currentColor">
@@ -92,8 +92,8 @@ export const DappHome: React.FC = () => {
                   </div>
                 </div>
                 <p className="text-slate mb-4">Find nearby trash cans and collect waste to earn TRASH tokens as rewards.</p>
-                <Link 
-                  to="/dapp/collection" 
+                <Link
+                  to="/dapp/collection"
                   className="inline-flex items-center justify-center w-full px-4 py-2 bg-electric text-white font-medium rounded-lg hover:bg-electric/90 transition-colors"
                 >
                   Find Trash Cans
@@ -117,8 +117,8 @@ export const DappHome: React.FC = () => {
                   </div>
                 </div>
                 <p className="text-slate mb-4">Stake your USDC to fund trash cans and earn TRASH tokens as passive income.</p>
-                <Link 
-                  to="/dapp/stake" 
+                <Link
+                  to="/dapp/stake"
                   className="inline-flex items-center justify-center w-full px-4 py-2 bg-forest text-white font-medium rounded-lg hover:bg-forest/90 transition-colors"
                 >
                   View Opportunities
@@ -141,8 +141,8 @@ export const DappHome: React.FC = () => {
                   </div>
                 </div>
                 <p className="text-slate mb-4">Complete quests and earn special NFT achievements for your contributions.</p>
-                <Link 
-                  to="/dapp/achievements" 
+                <Link
+                  to="/dapp/achievements"
                   className="inline-flex items-center justify-center w-full px-4 py-2 bg-yellow-500 text-white font-medium rounded-lg hover:bg-yellow-600 transition-colors"
                 >
                   View Achievements
@@ -153,7 +153,7 @@ export const DappHome: React.FC = () => {
               </div>
             </div>
           </section>
-          
+
           {/* What's New Section */}
           <section>
             <h2 className="text-xl font-bold text-forest mb-4">What's New</h2>

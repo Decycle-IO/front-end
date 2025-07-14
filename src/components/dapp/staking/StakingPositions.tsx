@@ -73,7 +73,6 @@ const staticStakingOpportunities: StakingOpportunity[] = [
 ];
 
 export const StakingPositions: React.FC = () => {
-  const [selectedPositionId, setSelectedPositionId] = useState<number | null>(null);
   const [selectedOpportunityId, setSelectedOpportunityId] = useState<number | null>(null);
   const [isWithdrawOpen, setIsWithdrawOpen] = useState<boolean>(false);
   const [isStakeOpen, setIsStakeOpen] = useState<boolean>(false);
@@ -86,33 +85,7 @@ export const StakingPositions: React.FC = () => {
   const stakingOpportunities = staticStakingOpportunities;
   const isLoading = false;
 
-  // Handle withdrawing a stake
-  const handleWithdraw = (positionId: number): void => {
-    setSelectedPositionId(positionId);
-    setIsWithdrawOpen(true);
-  };
-
-  // Handle confirming withdrawal
-  const handleWithdrawConfirm = (): void => {
-    if (selectedPositionId === null) return;
-    
-    setIsProcessing(true);
-    
-    // Simulate success for marketing screenshots
-    setTimeout(() => {
-      setIsSuccess(true);
-      
-      // Close withdraw modal after success
-      setTimeout(() => {
-        setIsWithdrawOpen(false);
-        setIsSuccess(false);
-        setIsProcessing(false);
-        setSelectedPositionId(null);
-      }, 2000);
-    }, 1000);
-  };
-
-  // Handle creating a new stake
+  // Handle confirming new stake
   const handleStake = (canId: number): void => {
     setSelectedOpportunityId(canId);
     setIsStakeOpen(true);
@@ -121,16 +94,16 @@ export const StakingPositions: React.FC = () => {
   // Handle confirming new stake
   const handleStakeConfirm = (): void => {
     if (selectedOpportunityId === null) return;
-    
+
     const amount = parseInt(stakeAmount);
     if (isNaN(amount) || amount <= 0) return;
-    
+
     setIsProcessing(true);
-    
+
     // Simulate success for marketing screenshots
     setTimeout(() => {
       setIsSuccess(true);
-      
+
       // Close stake modal after success
       setTimeout(() => {
         setIsStakeOpen(false);
@@ -143,12 +116,10 @@ export const StakingPositions: React.FC = () => {
   };
 
   // Get selected position/opportunity details
-  const selectedPosition = selectedPositionId !== null 
-    ? stakingPositions.find(pos => pos.id === selectedPositionId) 
-    : null;
+  const selectedPosition = stakingPositions.find(pos => pos.id === 1); // Assuming a default or first position for withdrawal
 
-  const selectedOpportunity = selectedOpportunityId !== null 
-    ? stakingOpportunities.find(opp => opp.canId === selectedOpportunityId) 
+  const selectedOpportunity = selectedOpportunityId !== null
+    ? stakingOpportunities.find(opp => opp.canId === selectedOpportunityId)
     : null;
 
   return (
@@ -156,7 +127,7 @@ export const StakingPositions: React.FC = () => {
       {/* Your Staking Positions Section */}
       <div>
         <h2 className="text-xl font-bold text-forest mb-4">Your Staking Positions</h2>
-        
+
         {/* Loading State */}
         {isLoading && (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -213,8 +184,6 @@ export const StakingPositions: React.FC = () => {
               <StakingPositionCard
                 key={position.id}
                 position={position}
-                onWithdraw={handleWithdraw}
-                isLoading={isProcessing && selectedPositionId === position.id}
               />
             ))}
           </div>
@@ -224,7 +193,7 @@ export const StakingPositions: React.FC = () => {
       {/* Staking Opportunities Section */}
       <div id="staking-opportunities">
         <h2 className="text-xl font-bold text-forest mb-4">Staking Opportunities</h2>
-        
+
         {/* Loading State */}
         {isLoading && (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -258,7 +227,6 @@ export const StakingPositions: React.FC = () => {
                 key={opportunity.canId}
                 opportunity={opportunity}
                 onStake={handleStake}
-                isLoading={isProcessing && selectedOpportunityId === opportunity.canId}
               />
             ))}
           </div>
@@ -405,7 +373,7 @@ export const StakingPositions: React.FC = () => {
                   onClick={handleStakeConfirm}
                   isLoading={isProcessing}
                   disabled={
-                    parseInt(stakeAmount) < selectedOpportunity.minStake || 
+                    parseInt(stakeAmount) < selectedOpportunity.minStake ||
                     parseInt(stakeAmount) > selectedOpportunity.maxStake
                   }
                   fullWidth
