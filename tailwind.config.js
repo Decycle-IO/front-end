@@ -8,19 +8,19 @@ export default {
     extend: {
       colors: {
         'forest': {
-          DEFAULT: '#328e61',
-          light: '#4aa875',
-          dark: '#256d49',
+          DEFAULT: '#328e60',
+          light: '#4aa874',
+          dark: '#256d48',
         },
         'electric': {
-          DEFAULT: '#bdec71',
-          light: '#d1f29a',
-          dark: '#a3d84a',
+          DEFAULT: '#beec71',
+          light: '#d0f29a',
+          dark: '#a2d84a',
         },
         'sky': {
-          DEFAULT: '#5bace2',
-          light: '#7abee8',
-          dark: '#3c9acc',
+          DEFAULT: '#5aade2',
+          light: '#79bee8',
+          dark: '#3b9acc',
         },
         'charcoal': '#000000',
         'slate': {
