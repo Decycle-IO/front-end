@@ -1,12 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-interface ProcessFlowProps {
-  gameStats?: any;
-  currentBin?: any;
-  recentActivity?: any;
-  isLoading?: boolean;
-}
+interface ProcessFlowProps {}
 
 const ProcessFlow: React.FC<ProcessFlowProps> = () => {
   return (

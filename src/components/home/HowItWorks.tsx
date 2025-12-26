@@ -86,7 +86,7 @@ const HowItWorks: React.FC = () => {
         </svg>
       ),
       benefit: "Instant rewards for verified recycling",
-      color: "from-cyan to-blue-500"
+      color: "from-sky to-sky-light"
     },
     {
       title: "3. Guaranteed Revenue",
@@ -98,7 +98,7 @@ const HowItWorks: React.FC = () => {
         </svg>
       ),
       benefit: "Continuous revenue stream from verified off-take",
-      color: "from-amber-500 to-orange-600"
+      color: "from-electric to-electric-light"
     }
   ];
 

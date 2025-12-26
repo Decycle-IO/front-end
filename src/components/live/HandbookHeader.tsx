@@ -1,14 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import type { GameStats } from '../../hooks/cannes/useCannesGame';
 
-interface HandbookHeaderProps {
-  gameStats: GameStats;
-}
+interface HandbookHeaderProps {}
 
-const HandbookHeader: React.FC<HandbookHeaderProps> = ({
-  gameStats,
-}) => {
+const HandbookHeader: React.FC<HandbookHeaderProps> = () => {
   return (
     <header className="bg-forest text-white">
       <div className="container mx-auto px-4 py-6">
@@ -22,13 +17,7 @@ const HandbookHeader: React.FC<HandbookHeaderProps> = ({
               Trash-Cannes Live Event Handbook
             </motion.h1>
             <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-4 text-sm text-white/80">
-              <span>ETHGlobal Cannes • July 4-6, 2025</span>
-              <span className="hidden sm:block">•</span>
-              <span className={`font-medium ${
-                gameStats?.eventPhase === 'LIVE_EVENT' ? 'text-green-300' : 'text-blue-300'
-              }`}>
-                {gameStats?.eventPhase === 'LIVE_EVENT' ? '🔴 LIVE EVENT' : '🟡 PRE-EVENT PHASE'}
-              </span>
+              <span>Decycle Live Event Handbook</span>
             </div>
           </div>
           

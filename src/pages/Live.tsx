@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { useCannesGame } from '../hooks/cannes/useCannesGame';
 import HandbookHeader from '../components/live/HandbookHeader';
 import SystemOverview from '../components/live/SystemOverview';
 import LocationMap from '../components/live/LocationMap';
@@ -11,7 +10,6 @@ import DemoScripts from '../components/live/DemoScripts';
 
 const Live: React.FC = () => {
   const [activeSection, setActiveSection] = useState('overview');
-  const { gameStats, currentBin, recentActivity, isLoading } = useCannesGame();
 
   const sections = [
     { id: 'overview', title: 'System Overview', component: SystemOverview },
@@ -26,9 +24,7 @@ const Live: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <HandbookHeader 
-        gameStats={gameStats}
-      />
+      <HandbookHeader />
       
       <motion.main
         initial={{ opacity: 0 }}
@@ -67,12 +63,7 @@ const Live: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3 }}
             >
-              <ActiveComponent 
-                gameStats={gameStats}
-                currentBin={currentBin}
-                recentActivity={recentActivity}
-                isLoading={isLoading}
-              />
+              <ActiveComponent />
             </motion.div>
           </div>
         </div>
@@ -83,11 +74,8 @@ const Live: React.FC = () => {
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="mb-4 md:mb-0">
               <div className="flex items-center">
-                <span className="text-lg font-bold mr-2">Trash-Cannes Live Event Handbook</span>
+                <span className="text-lg font-bold mr-2">Decycle Live Event Handbook</span>
               </div>
-              <p className="text-xs text-white/70 mt-1">
-                ETHGlobal Cannes • July 4-6, 2025
-              </p>
             </div>
             
           </div>

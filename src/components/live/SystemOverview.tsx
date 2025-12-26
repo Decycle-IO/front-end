@@ -1,12 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-interface SystemOverviewProps {
-  gameStats?: any;
-  currentBin?: any;
-  recentActivity?: any;
-  isLoading?: boolean;
-}
+interface SystemOverviewProps {}
 
 const SystemOverview: React.FC<SystemOverviewProps> = () => {
   return (

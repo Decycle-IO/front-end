@@ -8,16 +8,21 @@ export default {
     extend: {
       colors: {
         'forest': {
-          DEFAULT: '#0F4C3A',
-          light: '#1A6E54',
-          dark: '#0A3527',
+          DEFAULT: '#328e61',
+          light: '#4aa875',
+          dark: '#256d49',
         },
         'electric': {
-          DEFAULT: '#10B981',
-          light: '#34D399',
-          dark: '#059669',
+          DEFAULT: '#bdec71',
+          light: '#d1f29a',
+          dark: '#a3d84a',
         },
-        'charcoal': '#2D3748',
+        'sky': {
+          DEFAULT: '#5bace2',
+          light: '#7abee8',
+          dark: '#3c9acc',
+        },
+        'charcoal': '#000000',
         'slate': {
           50: '#F8FAFC',
           100: '#F1F5F9',
@@ -31,17 +36,7 @@ export default {
           900: '#0F172A',
           DEFAULT: '#4A5568',
         },
-        'cyan': '#00E5FF',
-        'blue': {
-          DEFAULT: '#2563EB',
-          light: '#3B82F6',
-          dark: '#1E40AF',
-        },
-        'turquoise': {
-          DEFAULT: '#06B6D4',
-          light: '#22D3EE',
-          dark: '#0891B2',
-        },
+        'white': '#ffffff',
       },
       fontFamily: {
         sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],

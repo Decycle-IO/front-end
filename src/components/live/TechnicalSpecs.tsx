@@ -1,12 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-interface TechnicalSpecsProps {
-  gameStats?: any;
-  currentBin?: any;
-  recentActivity?: any;
-  isLoading?: boolean;
-}
+interface TechnicalSpecsProps {}
 
 const TechnicalSpecs: React.FC<TechnicalSpecsProps> = () => {
   return (

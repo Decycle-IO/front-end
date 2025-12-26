@@ -1,12 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-interface LocationMapProps {
-  gameStats?: any;
-  currentBin?: any;
-  recentActivity?: any;
-  isLoading?: boolean;
-}
+interface LocationMapProps {}
 
 const LocationMap: React.FC<LocationMapProps> = () => {
   return (

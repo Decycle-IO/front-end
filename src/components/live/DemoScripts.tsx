@@ -1,12 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-interface DemoScriptsProps {
-  gameStats?: unknown;
-  currentBin?: unknown;
-  recentActivity?: unknown;
-  isLoading?: boolean;
-}
+interface DemoScriptsProps {}
 
 const DemoScripts: React.FC<DemoScriptsProps> = () => {
   return (

@@ -13,6 +13,7 @@ const Hero: React.FC = () => {
        <div className="absolute inset-0 opacity-30">
          <div className="absolute top-0 right-0 w-96 h-96 bg-electric/10 rounded-full blur-3xl"></div>
          <div className="absolute bottom-0 left-0 w-96 h-96 bg-forest/5 rounded-full blur-3xl"></div>
+         <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-sky/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
       </div>
 
       <div className="relative z-10 flex flex-col gap-12 md:gap-16 items-center max-w-7xl mx-auto px-4">
@@ -23,7 +24,7 @@ const Hero: React.FC = () => {
           transition={{ duration: 0.5, ease: "easeOut" }}
           className="text-center mb-4"
         >
-          <span className="text-xs md:text-sm font-semibold tracking-widest uppercase text-electric inline-block">
+          <span className="text-xs md:text-sm font-semibold tracking-widest uppercase text-forest inline-block">
             Revolutionizing Waste Management
           </span>
         </motion.div>
@@ -70,7 +71,7 @@ const Hero: React.FC = () => {
           </a>
           <a
             href="#technology"
-            className="px-8 py-4 bg-white text-forest font-semibold rounded-lg border-2 border-forest hover:bg-forest/5 transition-all duration-200 shadow-sm hover:shadow-md"
+            className="px-8 py-4 bg-white text-sky font-semibold rounded-lg border-2 border-sky hover:bg-sky/5 transition-all duration-200 shadow-sm hover:shadow-md"
           >
             Learn More
           </a>

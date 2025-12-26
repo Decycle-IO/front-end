@@ -1,12 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-interface VolunteerGuideProps {
-  gameStats?: any;
-  currentBin?: any;
-  recentActivity?: any;
-  isLoading?: boolean;
-}
+interface VolunteerGuideProps {}
 
 const VolunteerGuide: React.FC<VolunteerGuideProps> = () => {
   return (
