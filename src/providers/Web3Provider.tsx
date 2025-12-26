@@ -19,7 +19,7 @@ const queryClient = new QueryClient({
 const appInfo = {
   appName: 'Garbage DApp',
   description: 'Gamified Recycling System DApp',
-  iconUrl: `${window.location.origin}/decycle_logo_transparent.png`,
+  iconUrl: `${window.location.origin}/Decycle Logo (1).png`,
 };
 
 // Create a Wagmi config

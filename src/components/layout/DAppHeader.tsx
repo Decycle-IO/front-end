@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
 import { ConnectWallet } from '../dapp/wallet/ConnectWallet';
-import decycleLogo from '../../assets/decycle_logo_transparent.png';
+import decycleLogo from '../../assets/Decycle Logo (1)_transparent.png';
 
 const navItems = [
   { path: '/dapp', label: 'Dashboard' },

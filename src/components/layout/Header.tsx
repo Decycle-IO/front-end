@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import decycleLogo from '../../assets/decycle_logo_transparent.png';
+import decycleLogo from '../../assets/Decycle Logo (1)_transparent.png';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
