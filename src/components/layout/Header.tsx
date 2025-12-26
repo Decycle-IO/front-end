@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import decycleLogo from '../../assets/decycle_logo_transparent.png';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -13,32 +14,20 @@ const Header = () => {
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md shadow-sm border-b border-gray-100">
       <div className="container mx-auto px-6 md:px-8 py-5 flex items-center justify-between max-w-7xl">
         {/* Logo */}
-        <div className="flex items-center">
+        <Link to="/" onClick={() => window.scrollTo(0, 0)}>
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
             className="flex items-center"
           >
-            <svg 
-              xmlns="http://www.w3.org/2000/svg" 
-              className="h-7 w-7 mr-2 text-electric" 
-              fill="none" 
-              viewBox="0 0 24 24" 
-              stroke="currentColor"
-            >
-              <path 
-                strokeLinecap="round" 
-                strokeLinejoin="round" 
-                strokeWidth={2} 
-                d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" 
-              />
-            </svg>
-            <span className="text-forest text-2xl font-bold tracking-tight">
-              Decycle
-            </span>
+            <img 
+              src={decycleLogo} 
+              alt="Decycle" 
+              className="h-12 w-auto"
+            />
           </motion.div>
-        </div>
+        </Link>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-10">
