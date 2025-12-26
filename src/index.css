@@ -12,7 +12,8 @@
   }
   
   body {
-    @apply bg-white text-charcoal;
+    @apply bg-gray-50 text-charcoal;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
   }
   
   h1, h2, h3, h4, h5, h6 {

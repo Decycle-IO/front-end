@@ -10,8 +10,8 @@ const Header = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-white/95 to-forest/5 backdrop-blur-sm shadow-sm border-b border-forest/10">
-      <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md shadow-sm border-b border-gray-100">
+      <div className="container mx-auto px-6 md:px-8 py-5 flex items-center justify-between max-w-7xl">
         {/* Logo */}
         <div className="flex items-center">
           <motion.div
@@ -41,29 +41,30 @@ const Header = () => {
         </div>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-8">
+        <nav className="hidden md:flex items-center space-x-10">
           <Link 
             to="/" 
-            className="text-charcoal hover:text-forest transition-colors relative group font-medium text-sm tracking-wide"
+            className="text-charcoal hover:text-forest transition-colors relative group font-semibold text-sm tracking-wide"
             onClick={() => window.scrollTo(0, 0)}
           >
             Home
             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-electric group-hover:w-full transition-all duration-300"></span>
           </Link>
-          <a href="/#impact" className="text-charcoal hover:text-forest transition-colors relative group font-medium text-sm tracking-wide">
-            Impact
-            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-electric group-hover:w-full transition-all duration-300"></span>
-          </a>
-          <a href="/#how-it-works" className="text-charcoal hover:text-forest transition-colors relative group font-medium text-sm tracking-wide">
+          <a href="/#how-it-works" className="text-charcoal hover:text-forest transition-colors relative group font-semibold text-sm tracking-wide">
             How It Works
             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-electric group-hover:w-full transition-all duration-300"></span>
           </a>
-          <a href="/#technology" className="text-charcoal hover:text-forest transition-colors relative group font-medium text-sm tracking-wide">
+          <a href="/#technology" className="text-charcoal hover:text-forest transition-colors relative group font-semibold text-sm tracking-wide">
             Technology
             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-electric group-hover:w-full transition-all duration-300"></span>
           </a>
-          <a href="/cannes" target="_blank" rel="noopener noreferrer" className="btn btn-primary shadow-sm hover:shadow-md transition-shadow text-sm font-medium">
-            Cannes dApp
+          <a 
+            href="https://linktr.ee/decycle_io"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-5 py-2 bg-forest text-white font-semibold rounded-lg hover:bg-forest-light transition-all duration-200 text-sm"
+          >
+            Join Community
           </a>
         </nav>
 
@@ -142,15 +143,6 @@ const Header = () => {
             >
               <span className="w-1.5 h-1.5 bg-electric rounded-full mr-2"></span>
               Technology
-            </a>
-            <a
-              href="/cannes"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-primary text-center shadow-sm mt-2 text-sm font-medium"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Cannes dApp
             </a>
           </div>
         </motion.div>

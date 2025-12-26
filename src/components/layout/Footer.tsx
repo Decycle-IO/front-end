@@ -99,8 +99,25 @@ const Footer: React.FC = () => {
           </div>
         </div>
 
-        <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400 text-sm">
-          <p>&copy; {currentYear} Decycle. All rights reserved.</p>
+        <div className="border-t border-gray-700 mt-8 pt-8">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+            <p className="text-gray-400 text-sm">&copy; {currentYear} Decycle. All rights reserved.</p>
+            <div className="flex items-center gap-3">
+              <span className="text-gray-400 text-sm">ETHGlobal Prague Finalist</span>
+              <a 
+                href="https://ethglobal.com" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="transition-all duration-300 hover:opacity-80 hover:scale-105"
+              >
+                <img 
+                  src="/eth-global-prague.svg" 
+                  alt="ETHGlobal Prague" 
+                  className="h-8 w-auto" 
+                />
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </footer>

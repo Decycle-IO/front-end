@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Home, Dashboard, Cannes, Live, Token, DappHome, DappCollection, DappStaking } from './pages';
+import { Home, Dashboard, Token, DappHome, DappCollection, DappStaking } from './pages';
 import { AppProvider } from './providers/AppProvider';
 import ScrollToTop from './components/ui/ScrollToTop';
 
@@ -13,11 +13,6 @@ const App: React.FC = () => {
           {/* Main website routes */}
           <Route path="/" element={<Home />} />
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/cannes" element={<Cannes />} />
-          <Route path="/cannes/leaderboard" element={<Cannes />} />
-          <Route path="/cannes/founders" element={<Cannes />} />
-          <Route path="/cannes/profile" element={<Cannes />} />
-          <Route path="/live" element={<Live />} />
           <Route path="/token" element={<Token />} />
           
           {/* Dapp routes */}

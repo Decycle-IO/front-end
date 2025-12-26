@@ -14,10 +14,10 @@ const CallToAction: React.FC = () => {
           transition={{ duration: 0.5 }}
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-charcoal">
-            Join the <span className="text-forest">Decycle</span> Revolution
+            Join the <span className="text-forest">Decycle</span> Ecosystem
           </h2>
           <p className="text-lg text-slate mb-8">
-            We're actively looking for investors, partners, and early adopters to help us bring Decycle to smart cities around the world. Let's make recycling rewarding together.
+            We're building the world's first DePIN for recycling. Join us as we establish financially sustainable infrastructure that makes recycling profitable, engaging, and fully transparent—starting where it's needed most.
           </p>
           
           <div className="space-y-6">
@@ -28,9 +28,9 @@ const CallToAction: React.FC = () => {
                 </svg>
               </div>
               <div>
-                <h3 className="text-xl font-bold mb-2 text-charcoal">For Investors</h3>
+                <h3 className="text-xl font-bold mb-2 text-charcoal">For Investors & Stakers</h3>
                 <p className="text-slate">
-                  Invest in the future of sustainable waste management. Our staking model offers returns while making a positive environmental impact.
+                  Fund Smart Can deployment and earn recurring, verified revenue shares. Our crowdfunding model provides stable, asset-backed yield tied to measurable environmental impact.
                 </p>
               </div>
             </div>
@@ -42,9 +42,9 @@ const CallToAction: React.FC = () => {
                 </svg>
               </div>
               <div>
-                <h3 className="text-xl font-bold mb-2 text-charcoal">For Cities</h3>
+                <h3 className="text-xl font-bold mb-2 text-charcoal">For Collectors & Buyers</h3>
                 <p className="text-slate">
-                  Integrate Decycle into your smart city infrastructure to improve recycling rates and create a cleaner urban environment.
+                  Purchase pre-sorted, verified recyclable materials at discounted fixed rates. Profit from the efficiency of sorted materials while ensuring guaranteed off-take for the system.
                 </p>
               </div>
             </div>
@@ -56,9 +56,9 @@ const CallToAction: React.FC = () => {
                 </svg>
               </div>
               <div>
-                <h3 className="text-xl font-bold mb-2 text-charcoal">For Collectors</h3>
+                <h3 className="text-xl font-bold mb-2 text-charcoal">For Users</h3>
                 <p className="text-slate">
-                  Access pre-sorted recyclable materials at a discount and earn by participating in the circular economy.
+                  Participate in Recycle-to-Earn by depositing materials in Smart Cans. Earn token rewards instantly while AI automatically sorts and verifies your contributions.
                 </p>
               </div>
             </div>

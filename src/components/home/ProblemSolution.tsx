@@ -41,11 +41,11 @@ const ProblemSolution: React.FC = () => {
             </div>
             <ul className="space-y-3 md:space-y-4">
               {[
-                "No economic incentives for recycling participants",
-                "Fragmented systems with no impact tracking",
-                "Lack of engagement in environmental initiatives",
-                "Disconnect between actions and real-world impact",
-                "Limited global accessibility to recycling programs"
+                "Broken economics preventing profitable recycling",
+                "Opaque supply chains with no transparency",
+                "Lack of user incentives for participation",
+                "Massive fragmentation across global systems",
+                "Low material recovery rates worldwide"
               ].map((item, index) => (
                 <li key={index} className="flex items-start">
                   <div className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center mt-0.5 mr-3 flex-shrink-0">
@@ -81,11 +81,11 @@ const ProblemSolution: React.FC = () => {
             </div>
             <ul className="space-y-3 md:space-y-4">
               {[
-                "Closed-loop economy with incentives for all",
-                "Gamified ecosystem with virtual rewards",
-                "Build your backyard while funding real projects",
-                "Virtual participation for global access",
-                "Transparent impact tracking for every action"
+                "Decentralized ownership through crowdfunding",
+                "AI-powered smart cans with instant identification",
+                "Recycle-to-Earn model with token rewards",
+                "Guaranteed revenue from verified collectors",
+                "Transparent, on-chain data for all transactions"
               ].map((item, index) => (
                 <li key={index} className="flex items-start">
                   <div className="w-6 h-6 bg-forest/10 rounded-full flex items-center justify-center mt-0.5 mr-3 flex-shrink-0">
